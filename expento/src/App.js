@@ -6,7 +6,7 @@ import Splashlogin from "./components/screen/Splashlogin";
 function App() {
   return (
     <div className="">
-<Splashlogin/>
+
     </div>
   );
 }
