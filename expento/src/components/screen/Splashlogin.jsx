@@ -35,47 +35,49 @@ export default function SplashScreen() {
     }, []);
 
     return (
-        <div style={styles.container}>
-            {/* First Slide Title & Description (Rendered Outside Content) */}
-            {currentSlide === 0 && (
-                <>
-                    <h2 style={styles.firsttitle}>{slides[currentSlide].title}</h2>
-                    <p style={styles.firstdescription}>{slides[currentSlide].description}</p>
-                </>
-            )}
-
-            {/* Image Section */}
-            <img
-                src={slides[currentSlide].image}
-                alt={slides[currentSlide].title}
-                style={currentSlide === 0 ? styles.firstImage : styles.image}
-            />
-
-            {/* Content Section */}
-            <div style={currentSlide === 0 ? styles.firstPageContent : styles.content}>
-
-                {currentSlide !== 0 && (
+        <>
+            <div style={styles.container}>
+                {/* First Slide Title & Description (Rendered Outside Content) */}
+                {currentSlide === 0 && (
                     <>
-                        <h2 style={styles.title}>{slides[currentSlide].title}</h2>
-                        <p style={styles.description}>{slides[currentSlide].description}</p>
+                        <h2 style={styles.firsttitle}>{slides[currentSlide].title}</h2>
+                        <p style={styles.firstdescription}>{slides[currentSlide].description}</p>
                     </>
                 )}
 
-                {/* Pagination Dots */}
-                <div style={styles.pagination}>
-                    {slides.map((_, index) => (
-                        <span
-                            key={index}
-                            style={{
-                                ...styles.dot,
-                                backgroundColor: index === currentSlide ? "#082A45" : "#ccc",
-                            }}
-                        />
-                    ))}
+                {/* Image Section */}
+                <img
+                    src={slides[currentSlide].image}
+                    alt={slides[currentSlide].title}
+                    style={currentSlide === 0 ? styles.firstImage : styles.image}
+                />
+
+                {/* Content Section */}
+                <div style={currentSlide === 0 ? styles.firstPageContent : styles.content}>
+
+                    {currentSlide !== 0 && (
+                        <>
+                            <h2 style={styles.title}>{slides[currentSlide].title}</h2>
+                            <p style={styles.description}>{slides[currentSlide].description}</p>
+                        </>
+                    )}
+
+                    {/* Pagination Dots */}
+                    <div style={styles.pagination}>
+                        {slides.map((_, index) => (
+                            <span
+                                key={index}
+                                style={{
+                                    ...styles.dot,
+                                    backgroundColor: index === currentSlide ? "#082A45" : "#ccc",
+                                }}
+                            />
+                        ))}
+                    </div>
+                    <button style={styles.button}>Get started</button>
                 </div>
-                <button style={styles.button}>Get started</button>
             </div>
-        </div>
+        </>
     );
 }
 
