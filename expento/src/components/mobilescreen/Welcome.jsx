@@ -1,17 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 export default function Welcome() {
-  const [imageLoaded, setImageLoaded] = useState(false);
-
-  useEffect(() => {
-    const img = new Image();
-    img.src = "/assets/welcome_img.png";
-    img.onload = () => setImageLoaded(true);
-  }, []);
-
   return (
     <div style={styles.container}>
 
@@ -22,21 +16,16 @@ export default function Welcome() {
         <h3 style={styles.title}>Welcome</h3>
       </div>
 
-
       <div style={styles.imageContainer}>
-        {imageLoaded ? (
-          <img
-            src="/assets/welcome_img.png"
-            alt="Welcome"
-            style={styles.image}
-            loading="lazy"
-          />
-        ) : (
-          <div style={styles.imagePlaceholder}></div>
-        )}
+        <LazyLoadImage
+          src="/assets/welcome_img.png"
+          alt="Welcome"
+          effect="opacity"
+          style={styles.image}
+          // placeholderSrc="/assets/placeholder.png" 
+        />
         <div style={styles.imageOverlay}></div>
       </div>
-
 
       <div style={styles.content}>
         <h2 style={styles.heading}>Welcome</h2>
@@ -48,7 +37,9 @@ export default function Welcome() {
           <FcGoogle style={styles.googleIcon} /> Continue with Google
         </button>
 
-         <Link to= '/signup'><button style={styles.primaryButton}>Signup</button></Link>
+        <Link to="/signup">
+          <button style={styles.primaryButton}>Signup</button>
+        </Link>
 
         <p style={styles.loginText}>
           Already have an account?{" "}
@@ -61,7 +52,7 @@ export default function Welcome() {
   );
 }
 
-// Styles
+
 const styles = {
   container: {
     height: "100vh",
@@ -110,11 +101,6 @@ const styles = {
     height: "100%",
     objectFit: "cover",
     transition: "opacity 0.5s ease-in-out",
-  },
-  imagePlaceholder: {
-    width: "100%",
-    height: "100%",
-    backgroundColor: "#e0e0e0",
   },
   imageOverlay: {
     position: "absolute",

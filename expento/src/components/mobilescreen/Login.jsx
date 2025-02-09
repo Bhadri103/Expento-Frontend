@@ -1,55 +1,57 @@
 import React from "react";
-import { FaArrowLeft, FaEye, FaEyeSlash } from "react-icons/fa";
-import { MdEmail, MdPhone, MdLock } from "react-icons/md";
+import { FaArrowLeft, FaEyeSlash } from "react-icons/fa";
+import { MdEmail, MdLock } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 export default function Login() {
     return (
-        <>
-            <div style={styles.container}>
-
-                <div style={styles.topBar}>
-                    <FaArrowLeft style={styles.backIcon} onClick={() => window.history.back()} />
-                    <h3 style={styles.title}>Welcome</h3>
-                </div>
-
-
-                <div style={styles.imageContainer}>
-                    <img src="/assets/login_img.png" alt="Welcome" style={styles.image} />
-                    <div style={styles.imageOverlay}></div>
-                </div>
-
-
-                <div style={styles.content}>
-                    <h2 style={styles.heading}>Welcome back !</h2>
-                    <p style={styles.subText}>Sign in to your account</p>
-
-                    <div style={styles.inputContainer}>
-                        <MdEmail style={styles.icon} />
-                        <input type="email" placeholder="Email Address" style={styles.input} />
-                    </div>
-
-                    <div style={styles.inputContainer}>
-                        <MdLock style={styles.icon} />
-                        <input type="password" placeholder="Password" style={styles.input} />
-                        <FaEyeSlash style={styles.eyeIcon} />
-                    </div>
-
-                    <div style={styles.options}>
-                        <label style={styles.rememberMe}>
-                            <input type="checkbox" /> Remember me
-                        </label>
-                        <a href="/forgot-password" style={styles.forgotPassword}>Forgot password</a>
-                    </div>
-
-                    <button style={styles.primaryButton}>Login</button>
-
-                    <p style={styles.signupText}>
-                        Don't have an account? <Link to="/signup" style={styles.signupLink}>Sign up</Link>
-                    </p>
-                </div>
+        <div style={styles.container}>
+            <div style={styles.topBar}>
+                <FaArrowLeft style={styles.backIcon} onClick={() => window.history.back()} />
+                <h3 style={styles.title}>Welcome</h3>
             </div>
-        </>
+
+            <div style={styles.imageContainer}>
+                <LazyLoadImage
+                    src="/assets/login_img.png"
+                    alt="Welcome"
+                    effect="opacity"
+                    style={styles.image}
+                />
+                <div style={styles.imageOverlay}></div>
+            </div>
+
+            <div style={styles.content}>
+                <h2 style={styles.heading}>Welcome back !</h2>
+                <p style={styles.subText}>Sign in to your account</p>
+
+                <div style={styles.inputContainer}>
+                    <MdEmail style={styles.icon} />
+                    <input type="email" placeholder="Email Address" style={styles.input} />
+                </div>
+
+                <div style={styles.inputContainer}>
+                    <MdLock style={styles.icon} />
+                    <input type="password" placeholder="Password" style={styles.input} />
+                    <FaEyeSlash style={styles.eyeIcon} />
+                </div>
+
+                <div style={styles.options}>
+                    <label style={styles.rememberMe}>
+                        <input type="checkbox" /> Remember me
+                    </label>
+                    <a href="/forgot-password" style={styles.forgotPassword}>Forgot password</a>
+                </div>
+
+                <button style={styles.primaryButton}>Login</button>
+
+                <p style={styles.signupText}>
+                    Don't have an account? <Link to="/signup" style={styles.signupLink}>Sign up</Link>
+                </p>
+            </div>
+        </div>
     );
 }
 

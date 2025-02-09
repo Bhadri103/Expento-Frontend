@@ -34,7 +34,7 @@ export default function GetStarted() {
         if (currentSlide < slides.length - 1) {
             timeoutRef.current = setTimeout(() => {
                 setCurrentSlide((prev) => prev + 1);
-            }, 1600);
+            }, 1880);
         }
     }, [currentSlide]);
 

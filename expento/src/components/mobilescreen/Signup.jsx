@@ -1,54 +1,56 @@
 import React from "react";
-import { FaArrowLeft, FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaArrowLeft, FaEyeSlash } from "react-icons/fa";
 import { MdEmail, MdPhone, MdLock } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 export default function Signup() {
     return (
-        <>
-            <div style={styles.container}>
-
-                <div style={styles.topBar}>
-                    <FaArrowLeft style={styles.backIcon} onClick={() => window.history.back()} />
-                    <h3 style={styles.title}>Welcome</h3>
-                </div>
-
-
-                <div style={styles.imageContainer}>
-                    <img src="/assets/signup_img.png" alt="Welcome" style={styles.image} />
-                    <div style={styles.imageOverlay}></div>
-                </div>
-
-
-                <div style={styles.content}>
-                    <h2 style={styles.heading}>Create account</h2>
-                    <p style={styles.subText}>Quickly create an account</p>
-
-                    <div style={styles.inputContainer}>
-                        <MdEmail style={styles.icon} />
-                        <input type="email" placeholder="Email address" style={styles.input} />
-                    </div>
-
-                    <div style={styles.inputContainer}>
-                        <MdPhone style={styles.icon} />
-                        <input type="text" placeholder="Phone number" style={styles.input} />
-                    </div>
-
-                    <div style={styles.inputContainer}>
-                        <MdLock style={styles.icon} />
-                        <input type="password" placeholder="Password" style={styles.input} />
-                        <FaEyeSlash style={styles.eyeIcon} />
-                    </div>
-
-                    <button style={styles.primaryButton}>Signup</button>
-
-                    <p style={styles.loginText}>
-                        Already have an account?
-                        <Link to="/login" style={styles.loginLink}>Login</Link>
-                    </p>
-                </div>
+        <div style={styles.container}>
+            <div style={styles.topBar}>
+                <FaArrowLeft style={styles.backIcon} onClick={() => window.history.back()} />
+                <h3 style={styles.title}>Welcome</h3>
             </div>
-        </>
+
+            <div style={styles.imageContainer}>
+                <LazyLoadImage
+                    src="/assets/signup_img.png"
+                    alt="Welcome"
+                    effect="opacity"
+                    style={styles.image}
+                />
+                <div style={styles.imageOverlay}></div>
+            </div>
+
+            <div style={styles.content}>
+                <h2 style={styles.heading}>Create account</h2>
+                <p style={styles.subText}>Quickly create an account</p>
+
+                <div style={styles.inputContainer}>
+                    <MdEmail style={styles.icon} />
+                    <input type="email" placeholder="Email address" style={styles.input} />
+                </div>
+
+                <div style={styles.inputContainer}>
+                    <MdPhone style={styles.icon} />
+                    <input type="text" placeholder="Phone number" style={styles.input} />
+                </div>
+
+                <div style={styles.inputContainer}>
+                    <MdLock style={styles.icon} />
+                    <input type="password" placeholder="Password" style={styles.input} />
+                    <FaEyeSlash style={styles.eyeIcon} />
+                </div>
+
+                <button style={styles.primaryButton}>Signup</button>
+
+                <p style={styles.loginText}>
+                    Already have an account?
+                    <Link to="/login" style={styles.loginLink}> Login</Link>
+                </p>
+            </div>
+        </div>
     );
 }
 
