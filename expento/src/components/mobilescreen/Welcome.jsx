@@ -37,13 +37,13 @@ export default function Welcome() {
           <FcGoogle style={styles.googleIcon} /> Continue with Google
         </button>
 
-        <Link to="/signup">
+        <Link to="/sign-up">
           <button style={styles.primaryButton}>Signup</button>
         </Link>
 
         <p style={styles.loginText}>
           Already have an account?{" "}
-          <Link to="/login" style={styles.loginLink}>
+          <Link to="/log-in" style={styles.loginLink}>
             Login
           </Link>
         </p>

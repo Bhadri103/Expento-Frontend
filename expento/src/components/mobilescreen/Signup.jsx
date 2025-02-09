@@ -47,7 +47,7 @@ export default function Signup() {
 
                 <p style={styles.loginText}>
                     Already have an account?
-                    <Link to="/login" style={styles.loginLink}> Login</Link>
+                    <Link to="/log-in" style={styles.loginLink}> Login</Link>
                 </p>
             </div>
         </div>

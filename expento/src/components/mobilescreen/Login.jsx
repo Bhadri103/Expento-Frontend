@@ -42,13 +42,14 @@ export default function Login() {
                     <label style={styles.rememberMe}>
                         <input type="checkbox" /> Remember me
                     </label>
-                    <a href="/forgot-password" style={styles.forgotPassword}>Forgot password</a>
+                    <Link to="/forgot-password" style={styles.forgotPassword}>Forgot password</Link>
+                    
                 </div>
 
                 <button style={styles.primaryButton}>Login</button>
 
                 <p style={styles.signupText}>
-                    Don't have an account? <Link to="/signup" style={styles.signupLink}>Sign up</Link>
+                    Don't have an account? <Link to="/sign-up" style={styles.signupLink}>Sign up</Link>
                 </p>
             </div>
         </div>

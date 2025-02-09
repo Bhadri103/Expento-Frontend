@@ -2,11 +2,13 @@ import React, { lazy } from "react";
 
 
 
-const Login = lazy(() => import("../components/mobilescreen/Login")); 
 const LandingPage = lazy(() => import("../pages/LandingPage"));
-const GetStarted = lazy(() => import("../components/mobilescreen/GetStarted"));
-const Welcome = lazy(() => import("../components/mobilescreen/Welcome"));
-const Signup = lazy(() => import("../components/mobilescreen/Signup"));
+const GetStartedPage = lazy(() => import("../pages/GetStartedPage"));
+const WelcomePage = lazy(() => import("../pages/WelcomePage")); 
+const LoginPage = lazy(() => import("../pages/LoginPage"));
+const SignupPage = lazy(() => import("../pages/SignupPage"));
+const ForgetPasswordPage = lazy(() => import("../pages/ForgetPasswordPage"));
+
 
 
 export const routes = [
@@ -19,21 +21,26 @@ export const routes = [
   {
     name: "GetStarted",
     path: "/getstarted",
-    element: <GetStarted />,
+    element: <GetStartedPage />,
   },
   {
     name: "Welcome",
     path: "/welcome",
-    element: <Welcome />,
+    element: <WelcomePage />,
   },
   {
     name: "Login",
-    path: "/login",
-    element: <Login />,
+    path: "/log-in",
+    element: <LoginPage />,
   },        
   {
     name: "Signup",
-    path: "/signup",
-    element: <Signup />,
-  }
+    path: "/sign-up",
+    element: <SignupPage />,
+  },
+  {
+    name: "ForgetPassword",
+    path: "/forget-password",
+    element: <ForgetPasswordPage />
+  },
 ];
