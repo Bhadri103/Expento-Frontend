@@ -4,6 +4,19 @@ import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { auth, provider, signInWithPopup } from "../../firebase"; 
+
+
+
+const handleGoogleSignIn = async () => {
+  try {
+    const result = await signInWithPopup(auth, provider);
+    console.log("User Info:", result.user);
+  } catch (error) {
+    console.error("Google Sign-In Error:", error);
+  }
+};
+
 
 export default function Welcome() {
   return (
@@ -22,7 +35,7 @@ export default function Welcome() {
           alt="Welcome"
           effect="opacity"
           style={styles.image}
-          // placeholderSrc="/assets/placeholder.png" 
+        // placeholderSrc="/assets/placeholder.png" 
         />
         <div style={styles.imageOverlay}></div>
       </div>
@@ -33,9 +46,10 @@ export default function Welcome() {
           Discover endless styles, from timeless classics to the latest trends
         </p>
 
-        <button style={styles.googleButton}>
+        <button style={styles.googleButton} onClick={handleGoogleSignIn}>
           <FcGoogle style={styles.googleIcon} /> Continue with Google
         </button>
+
 
         <Link to="/sign-up">
           <button style={styles.primaryButton}>Signup</button>

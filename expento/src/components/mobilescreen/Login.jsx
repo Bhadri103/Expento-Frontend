@@ -1,11 +1,82 @@
-import React from "react";
-import { FaArrowLeft, FaEyeSlash } from "react-icons/fa";
+import { React, useState } from "react";
+import { FaArrowLeft, FaEyeSlash, FaEye } from "react-icons/fa";
 import { MdEmail, MdLock } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Login() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [errors, setErrors] = useState({ email: "", password: "" });
+    const [showPassword, setShowPassword] = useState(false);
+
+    const validateForm = () => {
+        let newErrors = { email: "", phone: "", password: "" };
+        let valid = true;
+
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            newErrors.email = "Invalid email format";
+            valid = false;
+        }
+
+
+        if (!/^[A-Za-z0-9]{8,}$/.test(password)) {
+            newErrors.password = "Password must be at least 8 characters (a-z, 0-9)";
+            valid = false;
+        }
+
+        setErrors(newErrors);
+        return valid;
+    };
+
+    const handleSignup = () => {
+        if (!validateForm()) {
+            toast.error("Oops! Please fix the errors.", {
+                position: "top-center",
+                autoClose: 2500,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                style: {
+                    fontSize: "14px",
+                    fontWeight: "500",
+                    borderRadius: "10px",
+                    background: "#FF4C4C",
+                    color: "#fff",
+                    boxShadow: "0px 4px 10px rgba(255, 76, 76, 0.2)",
+                    maxWidth: "90%", // ✅ Makes it mobile-friendly
+                    margin: "12px auto", // ✅ Adds spacing from edges
+                    padding: "12px 16px",
+                }
+            });
+            return;
+        }
+
+        toast.success("Signup successful!", {
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            style: {
+                fontSize: "14px",
+                fontWeight: "500",
+                borderRadius: "10px",
+                background: "#4CAF50",
+                color: "#fff",
+                boxShadow: "0px 4px 10px rgba(76, 175, 80, 0.2)",
+                maxWidth: "90%",
+                margin: "12px auto",
+                padding: "12px 16px",
+            }
+        });
+    };
+
     return (
         <div style={styles.container}>
             <div style={styles.topBar}>
@@ -29,24 +100,50 @@ export default function Login() {
 
                 <div style={styles.inputContainer}>
                     <MdEmail style={styles.icon} />
-                    <input type="email" placeholder="Email Address" style={styles.input} />
+                    <input
+                        type="email"
+                        placeholder="Email address"
+                        style={styles.input}
+                        value={email}
+                        onChange={(e) => {
+                            setEmail(e.target.value);
+                            if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value)) {
+                                setErrors((prev) => ({ ...prev, email: "" }));
+                            }
+                        }}
+                    />
                 </div>
-
+                {errors.email && <p style={styles.errorText}>{errors.email}</p>}
                 <div style={styles.inputContainer}>
                     <MdLock style={styles.icon} />
-                    <input type="password" placeholder="Password" style={styles.input} />
-                    <FaEyeSlash style={styles.eyeIcon} />
+                    <input
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Password"
+                        style={styles.input}
+                        value={password}
+                        onChange={(e) => {
+                            setPassword(e.target.value);
+                            if (/^[A-Za-z0-9]{8,}$/.test(e.target.value)) {
+                                setErrors((prev) => ({ ...prev, password: "" }));
+                            }
+                        }}
+                    />
+                    {showPassword ? (
+                        <FaEye style={styles.eyeIcon} onClick={() => setShowPassword(false)} />
+                    ) : (
+                        <FaEyeSlash style={styles.eyeIcon} onClick={() => setShowPassword(true)} />
+                    )}
                 </div>
-
+                {errors.password && <p style={styles.errorText}>{errors.password}</p>}
                 <div style={styles.options}>
                     <label style={styles.rememberMe}>
                         <input type="checkbox" /> Remember me
                     </label>
                     <Link to="/forgot-password" style={styles.forgotPassword}>Forgot password</Link>
-                    
+
                 </div>
 
-                <button style={styles.primaryButton}>Login</button>
+                <button style={styles.primaryButton} onClick={handleSignup}>Login</button>
 
                 <p style={styles.signupText}>
                     Don't have an account? <Link to="/sign-up" style={styles.signupLink}>Sign up</Link>
@@ -152,6 +249,11 @@ const styles = {
         fontSize: "20px",
         color: "#666",
         cursor: "pointer",
+    },
+    errorText: {
+        color: "red", 
+        fontSize: "12px",
+        marginBottom: "5px"
     },
     options: {
         display: "flex",
