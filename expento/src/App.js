@@ -1,16 +1,16 @@
+import React, { Suspense } from "react";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { routes } from "./routes";
+import Loader from "./components/ui/Loader";
 
-import "./App.css";
-import Login from "./components/screen/Login";
-import Signup from "./components/screen/Signup";
-import Splashlogin from "./components/screen/Splashlogin";
-import Welcome from "./components/screen/Welcome";
 
+const router = createBrowserRouter(routes);
 
 function App() {
   return (
-    <div className="">
-
-    </div>
+    <Suspense fallback={<Loader />}>
+      <RouterProvider router={router} />
+    </Suspense>
   );
 }
 

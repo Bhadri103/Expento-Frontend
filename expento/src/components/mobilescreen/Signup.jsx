@@ -1,8 +1,9 @@
 import React from "react";
 import { FaArrowLeft, FaEye, FaEyeSlash } from "react-icons/fa";
 import { MdEmail, MdPhone, MdLock } from "react-icons/md";
+import { Link } from "react-router-dom";
 
-export default function Login() {
+export default function Signup() {
     return (
         <>
             <div style={styles.container}>
@@ -14,18 +15,23 @@ export default function Login() {
 
 
                 <div style={styles.imageContainer}>
-                    <img src="/assets/login_img.png" alt="Welcome" style={styles.image} />
+                    <img src="/assets/signup_img.png" alt="Welcome" style={styles.image} />
                     <div style={styles.imageOverlay}></div>
                 </div>
 
 
                 <div style={styles.content}>
-                    <h2 style={styles.heading}>Welcome back !</h2>
-                    <p style={styles.subText}>Sign in to your account</p>
+                    <h2 style={styles.heading}>Create account</h2>
+                    <p style={styles.subText}>Quickly create an account</p>
 
                     <div style={styles.inputContainer}>
                         <MdEmail style={styles.icon} />
-                        <input type="email" placeholder="Email Address" style={styles.input} />
+                        <input type="email" placeholder="Email address" style={styles.input} />
+                    </div>
+
+                    <div style={styles.inputContainer}>
+                        <MdPhone style={styles.icon} />
+                        <input type="text" placeholder="Phone number" style={styles.input} />
                     </div>
 
                     <div style={styles.inputContainer}>
@@ -34,17 +40,11 @@ export default function Login() {
                         <FaEyeSlash style={styles.eyeIcon} />
                     </div>
 
-                    <div style={styles.options}>
-                        <label style={styles.rememberMe}>
-                            <input type="checkbox" /> Remember me
-                        </label>
-                        <a href="/forgot-password" style={styles.forgotPassword}>Forgot password</a>
-                    </div>
+                    <button style={styles.primaryButton}>Signup</button>
 
-                    <button style={styles.primaryButton}>Login</button>
-
-                    <p style={styles.signupText}>
-                        Don't have an account? <a href="/signup" style={styles.signupLink}>Sign up</a>
+                    <p style={styles.loginText}>
+                        Already have an account?
+                        <Link to="/login" style={styles.loginLink}>Login</Link>
                     </p>
                 </div>
             </div>
@@ -149,24 +149,6 @@ const styles = {
         color: "#666",
         cursor: "pointer",
     },
-    options: {
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        fontSize: "13px",
-        marginBottom: "15px",
-    },
-    rememberMe: {
-        display: "flex",
-        alignItems: "center",
-        gap: "5px",
-        color: "#777",
-    },
-    forgotPassword: {
-        color: "#000",
-        fontWeight: "bold",
-        textDecoration: "none",
-    },
     primaryButton: {
         width: "100%",
         backgroundColor: "#082A45",
@@ -177,14 +159,15 @@ const styles = {
         cursor: "pointer",
         fontSize: "14px",
         fontWeight: "500",
+        marginTop: "10px",
     },
-    signupText: {
+    loginText: {
         fontSize: "13px",
         marginTop: "15px",
         color: "#777",
         textAlign: "center",
     },
-    signupLink: {
+    loginLink: {
         color: "#000",
         fontWeight: "bold",
         textDecoration: "none",

@@ -1,24 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { Link } from "react-router-dom";
 
 export default function Welcome() {
-  return (
-    <>
+  const [imageLoaded, setImageLoaded] = useState(false);
 
+  useEffect(() => {
+    const img = new Image();
+    img.src = "/assets/welcome_img.png";
+    img.onload = () => setImageLoaded(true);
+  }, []);
+
+  return (
     <div style={styles.container}>
 
       <div style={styles.topBar}>
-        <FaArrowLeft style={styles.backIcon} />
+        <Link to="/" style={styles.backButton}>
+          <FaArrowLeft style={styles.backIcon} />
+        </Link>
         <h3 style={styles.title}>Welcome</h3>
       </div>
 
 
       <div style={styles.imageContainer}>
-        <img src="/assets/welcome_img.png" alt="Welcome" style={styles.image} />
+        {imageLoaded ? (
+          <img
+            src="/assets/welcome_img.png"
+            alt="Welcome"
+            style={styles.image}
+            loading="lazy"
+          />
+        ) : (
+          <div style={styles.imagePlaceholder}></div>
+        )}
         <div style={styles.imageOverlay}></div>
       </div>
-
 
 
       <div style={styles.content}>
@@ -27,24 +44,24 @@ export default function Welcome() {
           Discover endless styles, from timeless classics to the latest trends
         </p>
 
-
         <button style={styles.googleButton}>
           <FcGoogle style={styles.googleIcon} /> Continue with Google
         </button>
 
-
-        <button style={styles.primaryButton}>Signup</button>
-
+         <Link to= '/signup'><button style={styles.primaryButton}>Signup</button></Link>
 
         <p style={styles.loginText}>
-          Already have an account? <a href="/login" style={styles.loginLink}>Login</a>
+          Already have an account?{" "}
+          <Link to="/login" style={styles.loginLink}>
+            Login
+          </Link>
         </p>
       </div>
     </div>
-    </>
   );
 }
 
+// Styles
 const styles = {
   container: {
     height: "100vh",
@@ -65,30 +82,39 @@ const styles = {
     zIndex: 10,
     width: "100%",
   },
+  backButton: {
+    position: "absolute",
+    left: "15px",
+    textDecoration: "none",
+  },
   backIcon: {
     fontSize: "22px",
     cursor: "pointer",
     color: "#fff",
-    position: "absolute",
-    left: "15px",
   },
   title: {
     color: "#fff",
     fontSize: "18px",
     fontWeight: "normal",
-    margin: "0"
-
+    margin: "0",
   },
   imageContainer: {
     position: "relative",
     width: "100%",
     height: "60vh",
     overflow: "hidden",
+    backgroundColor: "#f0f0f0",
   },
   image: {
     width: "100%",
     height: "100%",
     objectFit: "cover",
+    transition: "opacity 0.5s ease-in-out",
+  },
+  imagePlaceholder: {
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#e0e0e0",
   },
   imageOverlay: {
     position: "absolute",
