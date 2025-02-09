@@ -2,12 +2,14 @@ import React, { lazy } from "react";
 
 
 
+
 const LandingPage = lazy(() => import("../pages/LandingPage"));
 const GetStartedPage = lazy(() => import("../pages/GetStartedPage"));
 const WelcomePage = lazy(() => import("../pages/WelcomePage")); 
 const LoginPage = lazy(() => import("../pages/LoginPage"));
 const SignupPage = lazy(() => import("../pages/SignupPage"));
 const ForgetPasswordPage = lazy(() => import("../pages/ForgetPasswordPage"));
+const LocationSelectorPage = lazy(() => import("../pages/LocationSelectorPage"));
 
 
 
@@ -43,4 +45,9 @@ export const routes = [
     path: "/forget-password",
     element: <ForgetPasswordPage />
   },
+  {
+    name:"Location-Selector",
+    path:"/location-selector",
+    element:<LocationSelectorPage/>
+  }
 ];
