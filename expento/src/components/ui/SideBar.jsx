@@ -4,10 +4,15 @@ import { FaHeadset, FaMapMarkerAlt, FaSignOutAlt, FaChevronRight } from "react-i
 
 const Sidebar = ({ isOpen, closeSidebar }) => {
     const [visible, setVisible] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         if (isOpen) {
             setVisible(true);
+            setLoading(true);
+            setTimeout(() => setLoading(false), 500);
+        } else {
+            setTimeout(() => setVisible(false), 300);
         }
     }, [isOpen]);
 
@@ -32,11 +37,15 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
                 </div>
                 
                 <div style={styles.menuItems}>
-                    <SidebarItem to="/welcome" icon="/user.svg" label="User" closeSidebar={closeSidebar} />
-                    <SidebarItem to="/getstarted" icon={<FaHeadset />} label="Customer Support" closeSidebar={closeSidebar} />
-                    <SidebarItem to="/log-in" icon={<FaMapMarkerAlt />} label="Addresses" closeSidebar={closeSidebar} />
-                    <SidebarItem to="/sign-up" icon="/remove_shopping_cart.svg" label="Order" closeSidebar={closeSidebar} />
-                    <SidebarItem to="/location-selector" icon="/favorite.svg" label="Saved" closeSidebar={closeSidebar} />
+                    {loading ? <SkeletonLoader /> : (
+                        <>
+                            <SidebarItem to="/welcome" icon="/user.svg" label="User" closeSidebar={closeSidebar} />
+                            <SidebarItem to="/getstarted" icon={<FaHeadset />} label="Customer Support" closeSidebar={closeSidebar} />
+                            <SidebarItem to="/log-in" icon={<FaMapMarkerAlt />} label="Addresses" closeSidebar={closeSidebar} />
+                            <SidebarItem to="/sign-up" icon="/remove_shopping_cart.svg" label="Order" closeSidebar={closeSidebar} />
+                            <SidebarItem to="/location-selector" icon="/favorite.svg" label="Saved" closeSidebar={closeSidebar} />
+                        </>
+                    )}
                 </div>
                 
                 <div className="px-4 py-3 w-100">
@@ -61,6 +70,16 @@ const SidebarItem = ({ to, icon, label, closeSidebar }) => {
             </span>
             <FaChevronRight style={styles.arrowIcon} />
         </Link>
+    );
+};
+
+const SkeletonLoader = () => {
+    return (
+        <div>
+            {[...Array(5)].map((_, index) => (
+                <div key={index} style={styles.skeletonItem}></div>
+            ))}
+        </div>
     );
 };
 
@@ -134,6 +153,14 @@ const styles = {
         justifyContent: "center",
         border: "none",
         transition: "background-color 0.3s ease-in-out",
+    },
+    skeletonItem: {
+        height: "38px",
+        width: "100%",
+        backgroundColor: "#1b4a5a",
+        marginBottom: "10px",
+        borderRadius: "8px",
+        animation: "pulse 1.5s infinite"
     },
 };
 
