@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import SplashScreen from "../components/ui/Splashscreen";
 import Loader from "../components/ui/Loader";
 import Navbar from "../components/ui/NavBar";
+import Footer from "../components/ui/Footer";
 
 export default function LandingPage() {
   const [showSplash, setShowSplash] = useState(
@@ -20,6 +21,7 @@ export default function LandingPage() {
     <>
       <Navbar />
       <Loader />
+      <Footer/>
     </>
   );
 }

@@ -3,22 +3,33 @@ import { Link } from "react-router-dom";
 import { FaHeadset, FaMapMarkerAlt, FaSignOutAlt, FaChevronRight } from "react-icons/fa";
 
 const Sidebar = ({ isOpen, closeSidebar }) => {
-    const [sidebarStyle, setSidebarStyle] = useState(styles.sidebarHidden);
+    const [visible, setVisible] = useState(false);
 
     useEffect(() => {
-        setSidebarStyle(isOpen ? styles.sidebarVisible : styles.sidebarHidden);
+        if (isOpen) {
+            setVisible(true);
+        }
     }, [isOpen]);
+
+    const handleAnimationEnd = () => {
+        if (!isOpen) {
+            setVisible(false);
+        }
+    };
+
+    if (!visible) return null;
 
     return (
         <>
-            <div style={sidebarStyle}>
-               
+            <div
+                style={isOpen ? styles.sidebarVisible : styles.sidebarHidden}
+                onAnimationEnd={handleAnimationEnd}
+            >
                 <div className="d-flex justify-content-end p-3">
                     <button className="btn-sm border-0 bg-transparent" onClick={closeSidebar} aria-label="Close sidebar">
                         <img src="/menu2.svg" alt="Close" style={{ width: "25px", height: "25px" }} />
                     </button>
                 </div>
-
                 
                 <div style={styles.menuItems}>
                     <SidebarItem to="/welcome" icon="/user.svg" label="User" closeSidebar={closeSidebar} />
@@ -27,8 +38,7 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
                     <SidebarItem to="/sign-up" icon="/remove_shopping_cart.svg" label="Order" closeSidebar={closeSidebar} />
                     <SidebarItem to="/location-selector" icon="/favorite.svg" label="Saved" closeSidebar={closeSidebar} />
                 </div>
-
-               
+                
                 <div className="px-4 py-3 w-100">
                     <button style={styles.logoutButton} className="" onClick={closeSidebar}>
                         <FaSignOutAlt className="me-2" />
@@ -36,12 +46,11 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
                     </button>
                 </div>
             </div>
-
+            
             {isOpen && <div style={styles.overlay} onClick={closeSidebar} />}
         </>
     );
 };
-
 
 const SidebarItem = ({ to, icon, label, closeSidebar }) => {
     return (
@@ -59,14 +68,16 @@ const styles = {
     sidebarHidden: {
         position: "fixed",
         top: "0",
-        left: "-260px",
+        left: "0",
         width: "250px",
         height: "100dvh",
         backgroundColor: "#08293b",
         boxShadow: "2px 0 5px rgba(0, 0, 0, 0.2)",
+        transform: "translateX(-100%)",
         transition: "transform 0.3s ease-in-out",
         zIndex: "1000",
-        paddingTop: "20px",
+        paddingTop: "10px",
+        animation: "slideOut 0.3s forwards",
     },
     sidebarVisible: {
         position: "fixed",
@@ -76,9 +87,11 @@ const styles = {
         height: "100dvh",
         backgroundColor: "#08293b",
         boxShadow: "2px 0 5px rgba(0, 0, 0, 0.2)",
+        transform: "translateX(0)",
         transition: "transform 0.3s ease-in-out",
         zIndex: "1000",
-        paddingTop: "20px",
+        paddingTop: "10px",
+        animation: "slideIn 0.3s forwards",
     },
     menuItems: {
         padding: "10px",
