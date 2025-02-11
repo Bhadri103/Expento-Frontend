@@ -46,6 +46,7 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     height: "100vh",
+    height: "100dvh",
     backgroundColor: "#F8F9FA", 
   },
 };

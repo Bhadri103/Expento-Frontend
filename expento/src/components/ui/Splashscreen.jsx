@@ -15,7 +15,7 @@ export default function SplashScreen(
   return (
     <div
       style={styles.bg}
-      className="vh-100 vw-100 d-flex justify-content-center align-items-center"
+      className="d-flex justify-content-center align-items-center"
     >
       <img
         src="/expento_logo.svg"
@@ -46,5 +46,8 @@ export default function SplashScreen(
 const styles = {
   bg: {
     backgroundColor: "#082A45",
+    height: "100vh",
+    height:"100dvh",
+    width:"100%"
   },
 };

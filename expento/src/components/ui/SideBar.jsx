@@ -1,0 +1,127 @@
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { FaHeadset, FaMapMarkerAlt, FaSignOutAlt, FaChevronRight } from "react-icons/fa";
+
+const Sidebar = ({ isOpen, closeSidebar }) => {
+    const [sidebarStyle, setSidebarStyle] = useState(styles.sidebarHidden);
+
+    useEffect(() => {
+        setSidebarStyle(isOpen ? styles.sidebarVisible : styles.sidebarHidden);
+    }, [isOpen]);
+
+    return (
+        <>
+            <div style={sidebarStyle}>
+               
+                <div className="d-flex justify-content-end p-3">
+                    <button className="btn-sm border-0 bg-transparent" onClick={closeSidebar} aria-label="Close sidebar">
+                        <img src="/menu2.svg" alt="Close" style={{ width: "25px", height: "25px" }} />
+                    </button>
+                </div>
+
+                
+                <div style={styles.menuItems}>
+                    <SidebarItem to="/welcome" icon="/user.svg" label="User" closeSidebar={closeSidebar} />
+                    <SidebarItem to="/getstarted" icon={<FaHeadset />} label="Customer Support" closeSidebar={closeSidebar} />
+                    <SidebarItem to="/log-in" icon={<FaMapMarkerAlt />} label="Addresses" closeSidebar={closeSidebar} />
+                    <SidebarItem to="/sign-up" icon="/remove_shopping_cart.svg" label="Order" closeSidebar={closeSidebar} />
+                    <SidebarItem to="/location-selector" icon="/favorite.svg" label="Saved" closeSidebar={closeSidebar} />
+                </div>
+
+               
+                <div className="px-4 py-3 w-100">
+                    <button style={styles.logoutButton} className="" onClick={closeSidebar}>
+                        <FaSignOutAlt className="me-2" />
+                        Log out
+                    </button>
+                </div>
+            </div>
+
+            {isOpen && <div style={styles.overlay} onClick={closeSidebar} />}
+        </>
+    );
+};
+
+
+const SidebarItem = ({ to, icon, label, closeSidebar }) => {
+    return (
+        <Link to={to} style={styles.sidebarItem} className="sidebar-item" onClick={closeSidebar}>
+            <span className="d-flex align-items-center gap-3">
+                {typeof icon === "string" ? <img src={icon} alt={label} style={styles.icon} /> : icon}
+                {label}
+            </span>
+            <FaChevronRight style={styles.arrowIcon} />
+        </Link>
+    );
+};
+
+const styles = {
+    sidebarHidden: {
+        position: "fixed",
+        top: "0",
+        left: "-260px",
+        width: "250px",
+        height: "100dvh",
+        backgroundColor: "#08293b",
+        boxShadow: "2px 0 5px rgba(0, 0, 0, 0.2)",
+        transition: "transform 0.3s ease-in-out",
+        zIndex: "1000",
+        paddingTop: "20px",
+    },
+    sidebarVisible: {
+        position: "fixed",
+        top: "0",
+        left: "0",
+        width: "250px",
+        height: "100dvh",
+        backgroundColor: "#08293b",
+        boxShadow: "2px 0 5px rgba(0, 0, 0, 0.2)",
+        transition: "transform 0.3s ease-in-out",
+        zIndex: "1000",
+        paddingTop: "20px",
+    },
+    menuItems: {
+        padding: "10px",
+    },
+    sidebarItem: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "12px 16px",
+        color: "white",
+        fontSize: "16px",
+        cursor: "pointer",
+        gap: "10px",
+        borderRadius: "8px",
+        textDecoration: "none",
+    },
+    icon: {
+        width: "20px",
+        height: "20px",
+    },
+    overlay: {
+        position: "fixed",
+        top: "0",
+        left: "0",
+        width: "100%",
+        height: "100vh",
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        zIndex: "999",
+    },
+    logoutButton: {
+        width: "100%",
+        background: "rgba(255, 255, 255, 0.1)",
+        color: "white",
+        padding: "12px",
+        borderRadius: "8px",
+        fontSize: "16px",
+        cursor: "pointer",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        border: "none",
+        transition: "background-color 0.3s ease-in-out",
+    },
+};
+
+export default Sidebar;

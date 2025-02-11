@@ -4,7 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { auth, provider, signInWithPopup } from "../../firebase"; 
+import { auth, provider, signInWithPopup } from "../../firebase";
 
 
 
@@ -21,15 +21,15 @@ const handleGoogleSignIn = async () => {
 export default function Welcome() {
   return (
     <div style={styles.container}>
-
-      <div style={styles.topBar}>
-        <Link to="/" style={styles.backButton}>
-          <FaArrowLeft style={styles.backIcon} />
-        </Link>
-        <h3 style={styles.title}>Welcome</h3>
-      </div>
-
       <div style={styles.imageContainer}>
+        <div style={styles.topBar}>
+          <Link to="/" style={styles.backButton}>
+            <FaArrowLeft style={styles.backIcon} />
+          </Link>
+          <h3 style={styles.title}>Welcome</h3>
+        </div>
+
+
         <LazyLoadImage
           src="/assets/welcome_img.png"
           alt="Welcome"
@@ -41,6 +41,7 @@ export default function Welcome() {
       </div>
 
       <div style={styles.content}>
+      <div style={styles.contentcontainer}>
         <h2 style={styles.heading}>Welcome</h2>
         <p style={styles.subText}>
           Discover endless styles, from timeless classics to the latest trends
@@ -63,6 +64,7 @@ export default function Welcome() {
         </p>
       </div>
     </div>
+    </div>
   );
 }
 
@@ -70,6 +72,7 @@ export default function Welcome() {
 const styles = {
   container: {
     height: "100vh",
+    height: "100dvh",
     display: "flex",
     flexDirection: "column",
     backgroundColor: "#ffffff",
@@ -107,7 +110,7 @@ const styles = {
     position: "relative",
     width: "100%",
     height: "60vh",
-    overflow: "hidden",
+   
     backgroundColor: "#f0f0f0",
   },
   image: {
@@ -125,14 +128,22 @@ const styles = {
     background: "linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent)",
   },
   content: {
-    position: "absolute",
-    bottom: 0,
     width: "100%",
     backgroundColor: "#fff",
     padding: "30px 25px",
     borderTopLeftRadius: "12px",
     borderTopRightRadius: "12px",
-  },
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+    bottom: 0,
+    position: "absolute",
+},
+contentcontainer: {
+    maxWidth: "400px",
+    width: "100%",
+},
   heading: {
     fontSize: "22px",
     fontWeight: "bold",

@@ -6,7 +6,7 @@ import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-// Fix Leaflet marker icon issue
+
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
     iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
@@ -54,9 +54,9 @@ export default function LocationSelector() {
     return (
         <div style={styles.container}>
             <div style={styles.topBar}>
-                <Link to="/" style={styles.backButton}>
-                    <FaArrowLeft style={styles.backIcon} />
-                </Link>
+                <div  style={styles.backButton}>
+                    <FaArrowLeft style={styles.backIcon} onClick={() => window.history.back()} />
+                </div>
                 <h3 style={styles.title}>Confirm Delivery Location</h3>
             </div>
 
@@ -89,43 +89,43 @@ export default function LocationSelector() {
 }
 
 const styles = {
-    container: { height: "100vh", display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" },
+    container: {      height: "100vh", height: "100dvh", display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" },
     topBar: { display: "flex", alignItems: "center", justifyContent: "center", position: "relative", padding: "20px 15px", background: "#fff", zIndex: 10 },
     backButton: { position: "absolute", left: "15px", textDecoration: "none" },
     backIcon: { fontSize: "22px", cursor: "pointer", color: "#000" },
     title: { fontSize: "18px", fontWeight: "bold", margin: "0 auto" },
-    
+
     mapContainer: { flex: 1, position: "relative" },
-    mapPlaceholder: { 
-        position: "absolute", 
-        top: 0, left: 0, width: "100%", height: "100%", background: "#ddd", 
+    mapPlaceholder: {
+        position: "absolute",
+        top: 0, left: 0, width: "100%", height: "100%", background: "#ddd",
         zIndex: 1 /* Keeps map below other elements */
     },
 
-    searchBar: { 
-        position: "absolute", 
-        top: "10px", left: "50%", transform: "translateX(-50%)", 
-        width: "90%", display: "flex", alignItems: "center", 
-        background: "#fff", padding: "10px", borderRadius: "8px", 
+    searchBar: {
+        position: "absolute",
+        top: "10px", left: "50%", transform: "translateX(-50%)",
+        width: "90%", display: "flex", alignItems: "center",
+        background: "#fff", padding: "10px", borderRadius: "8px",
         border: "1px solid #ccc", zIndex: 100 /* Ensures visibility above map */
     },
     searchIcon: { fontSize: "26px", color: "#666", marginRight: "10px" },
     searchBox: { flex: 1, border: "none", outline: "none", fontSize: "14px" },
 
-    locationButton: { 
-        position: "absolute", bottom: "20px", right: "20px", 
-        width: "50px", height: "50px", background: "#082A45", 
-        borderRadius: "50%", border: "none", display: "flex", 
-        alignItems: "center", justifyContent: "center", 
-        boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.2)", 
+    locationButton: {
+        position: "absolute", bottom: "20px", right: "20px",
+        width: "50px", height: "50px", background: "#082A45",
+        borderRadius: "50%", border: "none", display: "flex",
+        alignItems: "center", justifyContent: "center",
+        boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.2)",
         zIndex: 100 /* Ensures visibility above map */
     },
     locationIcon: { fontSize: "26px", color: "#fff" },
 
-    content: { padding: "20px", backgroundColor: "#fff", borderTopLeftRadius: "20px", borderTopRightRadius: "20px", overflow: "hidden", borderRadius: "20px", zIndex: 10 },
+    content: { padding: "20px", display: "flex",flexDirection: "column", backgroundColor: "#fff", borderTopLeftRadius: "20px", borderTopRightRadius: "20px", overflow: "hidden", borderRadius: "20px", zIndex: 10 },
     heading: { fontSize: "22px", fontWeight: "bold" },
     subText: { fontSize: "16px", color: "#666" },
     locationmark: { fontSize: "18px", color: "#d9534f", marginRight: "3px" },
-    confirmButton: { width: "100%", background: "#082A45", color: "#ffffff", padding: "12px 0", border: "none", borderRadius: "8px", cursor: "pointer", fontSize: "14px", fontWeight: "500", marginTop: "10px" },
+    confirmButton: { width: window.innerWidth >= 600 ? "200px" : "100%", alignSelf:"self-end", background: "#082A45", color: "#ffffff", padding: "12px 0", border: "none", borderRadius: "8px", cursor: "pointer", fontSize: "14px", fontWeight: "500", marginTop: "10px" },
 
 };

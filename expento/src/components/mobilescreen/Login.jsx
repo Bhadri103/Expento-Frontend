@@ -50,8 +50,8 @@ export default function Login() {
                     background: "#FF4C4C",
                     color: "#fff",
                     boxShadow: "0px 4px 10px rgba(255, 76, 76, 0.2)",
-                    maxWidth: "90%", // ✅ Makes it mobile-friendly
-                    margin: "12px auto", // ✅ Adds spacing from edges
+                    maxWidth: "90%", 
+                    margin: "12px auto", 
                     padding: "12px 16px",
                 }
             });
@@ -79,12 +79,11 @@ export default function Login() {
 
     return (
         <div style={styles.container}>
+             <div style={styles.imageContainer}>
             <div style={styles.topBar}>
                 <FaArrowLeft style={styles.backIcon} onClick={() => window.history.back()} />
                 <h3 style={styles.title}>Welcome</h3>
-            </div>
-
-            <div style={styles.imageContainer}>
+            </div>    
                 <LazyLoadImage
                     src="/assets/login_img.png"
                     alt="Welcome"
@@ -95,6 +94,7 @@ export default function Login() {
             </div>
 
             <div style={styles.content}>
+                <div style={styles.contentcontainer}>
                 <h2 style={styles.heading}>Welcome back !</h2>
                 <p style={styles.subText}>Sign in to your account</p>
 
@@ -149,6 +149,7 @@ export default function Login() {
                     Don't have an account? <Link to="/sign-up" style={styles.signupLink}>Sign up</Link>
                 </p>
             </div>
+            </div>
         </div>
     );
 }
@@ -156,6 +157,7 @@ export default function Login() {
 const styles = {
     container: {
         height: "100vh",
+        height: "100dvh",
         display: "flex",
         flexDirection: "column",
         backgroundColor: "#ffffff",
@@ -189,8 +191,7 @@ const styles = {
     imageContainer: {
         position: "relative",
         width: "100%",
-        height: "60vh",
-        overflow: "hidden",
+        height: "60vh",  
     },
     image: {
         width: "100%",
@@ -206,13 +207,21 @@ const styles = {
         background: "linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent)",
     },
     content: {
-        position: "absolute",
-        bottom: 0,
         width: "100%",
         backgroundColor: "#fff",
         padding: "30px 25px",
         borderTopLeftRadius: "12px",
         borderTopRightRadius: "12px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        bottom: 0, 
+        position: "absolute",
+      },
+    contentcontainer: {
+        maxWidth: "400px",
+        width: "100%",
     },
     heading: {
         fontSize: "22px",

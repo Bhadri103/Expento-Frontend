@@ -57,8 +57,8 @@ export default function Signup() {
                     background: "#FF4C4C",
                     color: "#fff",
                     boxShadow: "0px 4px 10px rgba(255, 76, 76, 0.2)",
-                    maxWidth: "90%", // ✅ Makes it mobile-friendly
-                    margin: "12px auto", // ✅ Adds spacing from edges
+                    maxWidth: "90%", 
+                    margin: "12px auto", 
                     padding: "12px 16px",
                 }
             });
@@ -87,96 +87,97 @@ export default function Signup() {
 
     return (
         <div style={styles.container}>
-
-            <div style={styles.topBar}>
-                <FaArrowLeft style={styles.backIcon} onClick={() => window.history.back()} />
-                <h3 style={styles.title}>Welcome</h3>
-            </div>
-
             <div style={styles.imageContainer}>
+                <div style={styles.topBar}>
+                    <FaArrowLeft style={styles.backIcon} onClick={() => window.history.back()} />
+                    <h3 style={styles.title}>Welcome</h3>
+                </div>
+
+
                 <LazyLoadImage src="/assets/signup_img.png" alt="Welcome" effect="opacity" style={styles.image} />
                 <div style={styles.imageOverlay}></div>
             </div>
 
             <div style={styles.content}>
-                <h2 style={styles.heading}>Create account</h2>
-                <p style={styles.subText}>Quickly create an account</p>
+                <div style={styles.contentcontainer}>
+                    <h2 style={styles.heading}>Create account</h2>
+                    <p style={styles.subText}>Quickly create an account</p>
 
 
-                <div style={{ ...styles.inputContainer, borderColor: errors.email ? "red" : "#ccc" }}>
-                    <MdEmail style={styles.icon} />
+                    <div style={{ ...styles.inputContainer, borderColor: errors.email ? "red" : "#ccc" }}>
+                        <MdEmail style={styles.icon} />
 
-                    <input
-                        type="email"
-                        placeholder="Email address"
-                        style={styles.input}
-                        value={email}
-                        onChange={(e) => {
-                            setEmail(e.target.value);
-                            if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value)) {
-                                setErrors((prev) => ({ ...prev, email: "" }));
-                            }
-                        }}
-                    />
+                        <input
+                            type="email"
+                            placeholder="Email address"
+                            style={styles.input}
+                            value={email}
+                            onChange={(e) => {
+                                setEmail(e.target.value);
+                                if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value)) {
+                                    setErrors((prev) => ({ ...prev, email: "" }));
+                                }
+                            }}
+                        />
 
-                </div>
-                {errors.email && <p style={styles.errorText}>{errors.email}</p>}
-
-
-                <div style={{ ...styles.inputContainer, borderColor: errors.phone ? "red" : "#ccc" }}>
-                    <MdPhone style={styles.icon} />
-
-                    <input
-                        type="text"
-                        placeholder="Phone number"
-                        style={styles.input}
-                        value={phone}
-                        onInput={(e) => (e.target.value = e.target.value.replace(/[^0-9]/g, ""))}
-                        onChange={(e) => {
-                            setPhone(e.target.value);
-                            if (/^\d{10}$/.test(e.target.value)) {
-                                setErrors((prev) => ({ ...prev, phone: "" }));
-                            }
-                        }}
-                    />
-
-                </div>
-                {errors.phone && <p style={styles.errorText}>{errors.phone}</p>}
-
-                <div style={{ ...styles.inputContainer, borderColor: errors.password ? "red" : "#ccc" }}>
-                    <MdLock style={styles.icon} />
-
-                    <input
-                        type={showPassword ? "text" : "password"}
-                        placeholder="Password"
-                        style={styles.input}
-                        value={password}
-                        onChange={(e) => {
-                            setPassword(e.target.value);
-                            if (/^[A-Za-z0-9]{8,}$/.test(e.target.value)) {
-                                setErrors((prev) => ({ ...prev, password: "" }));
-                            }
-                        }}
-                    />
+                    </div>
+                    {errors.email && <p style={styles.errorText}>{errors.email}</p>}
 
 
-                    {showPassword ? (
-                        <FaEye style={styles.eyeIcon} onClick={() => setShowPassword(false)} />
-                    ) : (
-                        <FaEyeSlash style={styles.eyeIcon} onClick={() => setShowPassword(true)} />
-                    )}
-                </div>
-                {errors.password && <p style={styles.errorText}>{errors.password}</p>}
+                    <div style={{ ...styles.inputContainer, borderColor: errors.phone ? "red" : "#ccc" }}>
+                        <MdPhone style={styles.icon} />
+
+                        <input
+                            type="text"
+                            placeholder="Phone number"
+                            style={styles.input}
+                            value={phone}
+                            onInput={(e) => (e.target.value = e.target.value.replace(/[^0-9]/g, ""))}
+                            onChange={(e) => {
+                                setPhone(e.target.value);
+                                if (/^\d{10}$/.test(e.target.value)) {
+                                    setErrors((prev) => ({ ...prev, phone: "" }));
+                                }
+                            }}
+                        />
+
+                    </div>
+                    {errors.phone && <p style={styles.errorText}>{errors.phone}</p>}
+
+                    <div style={{ ...styles.inputContainer, borderColor: errors.password ? "red" : "#ccc" }}>
+                        <MdLock style={styles.icon} />
+
+                        <input
+                            type={showPassword ? "text" : "password"}
+                            placeholder="Password"
+                            style={styles.input}
+                            value={password}
+                            onChange={(e) => {
+                                setPassword(e.target.value);
+                                if (/^[A-Za-z0-9]{8,}$/.test(e.target.value)) {
+                                    setErrors((prev) => ({ ...prev, password: "" }));
+                                }
+                            }}
+                        />
 
 
-                <button style={styles.primaryButton} onClick={handleSignup}>Signup</button>
+                        {showPassword ? (
+                            <FaEye style={styles.eyeIcon} onClick={() => setShowPassword(false)} />
+                        ) : (
+                            <FaEyeSlash style={styles.eyeIcon} onClick={() => setShowPassword(true)} />
+                        )}
+                    </div>
+                    {errors.password && <p style={styles.errorText}>{errors.password}</p>}
 
 
-                <p style={styles.loginText}>
-                    Already have an account?
-                    <Link to="/log-in" style={styles.loginLink}> Login</Link>
-                </p>
-            </div>
+                    <button style={styles.primaryButton} onClick={handleSignup}>Signup</button>
+
+
+                    <p style={styles.loginText}>
+                        Already have an account?
+                        <Link to="/log-in" style={styles.loginLink}> Login</Link>
+                    </p>
+                </div>  </div>
         </div>
     );
 }
@@ -185,6 +186,7 @@ export default function Signup() {
 const styles = {
     container: {
         height: "100vh",
+        height: "100dvh",
         display: "flex",
         flexDirection: "column",
         backgroundColor: "#ffffff",
@@ -207,7 +209,23 @@ const styles = {
     imageContainer: { position: "relative", width: "100%", height: "60vh", overflow: "hidden" },
     image: { width: "100%", height: "100%", objectFit: "cover" },
     imageOverlay: { position: "absolute", top: 0, left: 0, width: "100%", height: "100px", background: "linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent)" },
-    content: { position: "absolute", bottom: 0, width: "100%", backgroundColor: "#fff", padding: "30px 25px", borderTopLeftRadius: "12px", borderTopRightRadius: "12px" },
+    content: {
+        width: "100%",
+        backgroundColor: "#fff",
+        padding: "30px 25px",
+        borderTopLeftRadius: "12px",
+        borderTopRightRadius: "12px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        bottom: 0,
+        position: "absolute",
+    },
+    contentcontainer: {
+        maxWidth: "400px",
+        width: "100%",
+    },
     heading: { fontSize: "22px", fontWeight: "bold", marginBottom: "5px", textAlign: "left" },
     subText: { fontSize: "14px", color: "#666", marginBottom: "20px", textAlign: "left" },
     inputContainer: { display: "flex", alignItems: "center", border: "1px solid #ccc", borderRadius: "8px", padding: "10px", marginBottom: "5px" },

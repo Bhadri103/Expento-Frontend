@@ -86,6 +86,7 @@ export default function GetStarted() {
 const styles = {
     container: {
         height: "100vh",
+        height: "100dvh",
         display: "flex",
         alignItems: "start",
         justifyContent: "center",
