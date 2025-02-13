@@ -8,9 +8,8 @@ const WelcomePage = lazy(() => import("../pages/WelcomePage"));
 const LoginPage = lazy(() => import("../pages/LoginPage"));
 const SignupPage = lazy(() => import("../pages/SignupPage"));
 const ForgetPasswordPage = lazy(() => import("../pages/ForgetPasswordPage"));
-const LocationSelectorPage = lazy(() =>
-  import("../pages/LocationSelectorPage")
-);
+const ResetPasswordPage = lazy(() => import("../pages/ResetPasswordPage"));
+const LocationSelectorPage = lazy(() =>import("../pages/LocationSelectorPage"));
 
 const withSuspense = Component =>
   <Suspense fallback={<Loader />}>
@@ -45,9 +44,14 @@ export const routes = [
   },
   {
     name: "ForgetPassword",
-    path: "/forget-password",
+    path: "/forgot-password",
     element: withSuspense(ForgetPasswordPage)
   },
+  {
+    name: "ResetPassword",
+    path: "/reset-password",
+   element: withSuspense(ResetPasswordPage)
+   },
   {
     name: "Location-Selector",
     path: "/location-selector",
