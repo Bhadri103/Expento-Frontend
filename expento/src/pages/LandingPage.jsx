@@ -3,6 +3,7 @@ import SplashScreen from "../components/ui/Splashscreen";
 import Loader from "../components/ui/Loader";
 import Navbar from "../components/ui/NavBar";
 import Footer from "../components/ui/Footer";
+import LayoutWrapper from "../components/ui/LayoutWrapper";
 
 export default function LandingPage() {
   const [showSplash, setShowSplash] = useState(
@@ -19,9 +20,9 @@ export default function LandingPage() {
     <SplashScreen onComplete={() => setShowSplash(false)} />
   ) : (
     <>
-      <Navbar />
-      <Loader />
-      <Footer/>
+     <LayoutWrapper>
+          <Loader />
+         </LayoutWrapper>
     </>
   );
 }

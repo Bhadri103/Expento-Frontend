@@ -17,7 +17,7 @@ const Navbar = () => {
                     onClick={() => setSidebarOpen(true)}
                 />
 
-                <img src="/expento_logo_png.png" alt="Expento Logo" style={styles.logo} />
+                <Link to="/"><img src="/expento_logo_png.png" alt="Expento Logo" style={styles.logo} /></Link>
 
                 <SelectLocation />
 
@@ -27,13 +27,13 @@ const Navbar = () => {
                 </div>
 
                 <div className="d-flex align-items-center justify-content-center gap-3 px-3">
-                    <Link to="/sign-up" style={{ textDecoration: "none" }}>
+                    <Link to="/Welcome" style={{ textDecoration: "none" }}>
                         <div className="d-flex flex-column align-items-center pointer" style={{ cursor: "pointer" }}>
                             <img src="/login_logo.svg" alt="Login" style={styles.icon} />
                             <span style={styles.text}>Login</span>
                         </div>
                     </Link>
-                    <Link to="/sign-up" style={{ textDecoration: "none" }}>
+                    <Link to="/cart" style={{ textDecoration: "none" }}>
                         <div className="d-flex flex-column align-items-center ms-3" style={{ cursor: "pointer" }}>
                             <img src="/cart_logo.svg" alt="Cart" style={styles.icon} />
                             <span style={styles.text}>Cart</span>

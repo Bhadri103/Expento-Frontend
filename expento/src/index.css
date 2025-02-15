@@ -18,3 +18,20 @@ code {
 .logout-hover :hover {
   background-color: rgba(255, 45, 45, 0.543) !important;
 }
+@keyframes slideIn {
+  from {
+      transform: translateX(-100%);
+  }
+  to {
+      transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+      transform: translateX(0);
+  }
+  to {
+      transform: translateX(-100%);
+  }
+}
