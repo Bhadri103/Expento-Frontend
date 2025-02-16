@@ -10,6 +10,7 @@ const SignupPage = lazy(() => import("../pages/SignupPage"));
 const ForgetPasswordPage = lazy(() => import("../pages/ForgetPasswordPage"));
 const ResetPasswordPage = lazy(() => import("../pages/ResetPasswordPage"));
 const LocationSelectorPage = lazy(() =>import("../pages/LocationSelectorPage"));
+const CategoryPage = lazy(() =>import("../pages/CategoryPage"));
 
 const withSuspense = Component =>
   <Suspense fallback={<Loader />}>
@@ -56,5 +57,10 @@ export const routes = [
     name: "Location-Selector",
     path: "/location-selector",
     element: withSuspense(LocationSelectorPage)
+  },
+  {
+    name: "Category",
+    path: "/category",
+    element: withSuspense(CategoryPage)
   }
 ];
