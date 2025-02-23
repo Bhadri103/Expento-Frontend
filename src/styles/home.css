@@ -1,0 +1,112 @@
+ :root {
+     --primary-clr: #082A45;
+     --heading-clr: #202325;
+     --grey-color: #6B7280;
+     --sky-blue-light: #CAE0F5;
+     --sky-blue-dark: #6FB0E8;
+ }
+
+
+ .primary-bg {
+     background-color: var(--primary-clr);
+ }
+
+ .primary-text {
+     color: var(--primary-clr);
+ }
+
+
+
+ .yourGoToItems {
+     background-color: var(--sky-blue-light);
+     padding: 50px 0px;
+ }
+ 
+
+ /*YOUR GO TO ITEMS SECTION STYLE STARTS HERE  */
+ .yourGoToItems h3 {
+     color: var(--primary-clr);
+ }
+
+ .yourGoToItems .prodName {
+     font-weight: 600;
+     font-size: 16px;
+ }
+
+ .yourGoToItems .kg {
+
+     font-size: 18px;
+     color: var(--grey-color);
+ }
+
+ .yourGoToItems .plusIconBtn {
+     border: 5px;
+     border-radius: 5px;
+     padding: 10px;
+
+     background-color: white;
+     box-shadow: 0.3px 0.3px 10px #ffbfef;
+     color: #FC0965;
+ }
+
+ .yourGotocardMain {
+     position: relative;
+     background-color: white;
+     border-radius: 10px;
+     padding: 15px;
+     width: 220px;
+
+ }
+
+ .yourGotocardMain .off-price {
+     color: #99267C;
+     font-weight: 600;
+ }
+
+ .see-all {
+     color: var(--sky-blue-dark);
+     font-weight: 600;
+     text-decoration: none;
+ }
+
+ .yourgotoimgTop img {
+     width: 150px;
+ }
+ 
+ .offerStar {
+     position: absolute;
+     height: 50px;
+     width: 50px;
+     background-image: url(../images/yourgotoitems/offer-star.svg);
+     right: -20px;
+     top: -22px;
+     font-size: 18px;
+     font-weight: 700;
+     padding: 50px;
+     color: white;
+     font-size: 13px;
+     background-position: center;
+     background-size: contain;
+     background-repeat: no-repeat;
+     background-position: center;
+     z-index: 1000;
+ }
+
+ .prod-title {
+     font-size: 16px;
+     font-weight: 600;
+     /* font */
+     color: var(--primary-clr);
+
+ }
+ .swiper-slide{
+    display: flex !important;
+    align-items: center !;
+    justify-content: center;
+    /* padding: 50px ;   */
+ }
+.swiper-wrapper{
+    padding: 50px 0px;
+}
+
+ /*YOUR GO TO ITEMS SECTION STYLE ENDS HERE  */

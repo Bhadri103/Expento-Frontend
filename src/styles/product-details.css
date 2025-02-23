@@ -1,0 +1,150 @@
+:root {
+    --primary-clr: #082A45;
+    --heading-clr: #202325;
+    --grey-clr: #202325;
+}
+
+.starRatingIcon svg {
+    color: goldenrod;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 20px !important;
+    color: #4b38b3 !important;
+    transition: all 0.3s ease;
+    background-color: rgba(75, 56, 179, 0.2) !important;
+    padding: 10px;
+    border-radius: 10px
+}
+
+.productName {
+    color: var(--grey-clr);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+strike {
+    color: var(--grey-clr);
+}
+
+.prodPrice {
+    color: var(--primary-clr);
+    font-weight: 500;
+}
+
+.product-detail-title {
+    font-size: 16px;
+    font-weight: 600;
+    /* font */
+    color: var(--heading-clr);
+
+}
+
+.btn-size {
+    background-color: #F2F4F5;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    color: var(--primary-clr);
+}
+
+.addtoCart {
+    background-color: var(--primary-clr);
+    color: white;
+    border-radius: 8px;
+    padding: 4px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.btn-black {
+    background-color: black;
+}
+
+.btn-blue {
+    background-color: blue;
+}
+
+.btn-red {
+    background-color: red;
+}
+
+.clr-btn {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: none;
+
+    /* border: 1px solid var(--grey-clr); */
+}
+
+
+
+/* SIMILAR PRODUCTS CSS */
+
+.similarProductCard {
+    border: 1px solid rgb(185, 185, 185);
+    border-radius: 10px;
+}
+
+.prod-title {
+    font-size: 18px;
+    font-weight: 700;
+    /* font */
+    color: var(--primary-clr);
+
+}
+
+.prod-desc {
+    font-size: 16px;
+    /* font-weight: 600; */
+    /* font */
+    /* color: var(--primary-clr); */
+
+}
+
+.prod-add-cart {
+    border-radius: 4px;
+    border: 2px solid var(--primary-clr);
+    background-color: white;
+    padding: 3px 10px;
+    width: 100%;
+    color: var(--primary-clr);
+    font-weight: 600;
+}
+
+.prod-price {
+    font-weight: 500;
+    color: var(--primary-clr);
+}
+
+.prod-content {
+    padding: 10px 20px;
+}
+
+.similarProductCard {
+    position: relative;
+}
+
+.cardtop-shape {
+    position: absolute;
+    top: 0px;
+    width: 0px;
+    height: 50px;
+    width: 50px;
+    color: white;
+    padding: 5px;
+    font-size: 13px;
+    text-align: center;
+    background-size: cover;
+    background-image: url(../images/products/card-top-vector.png);
+}
+
+/* SIMILAR PRODUCTS CSS */

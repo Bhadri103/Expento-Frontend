@@ -1,0 +1,140 @@
+/* SIMILAR PRODUCTS CSS */
+
+.similarProductCard {
+    border: 1px solid rgb(185, 185, 185);
+    border-radius: 10px;
+}
+
+.prod-title {
+    font-size: 18px;
+    font-weight: 700;
+    /* font */
+    color: var(--primary-clr);
+
+}
+
+.price strike {
+    color: grey;
+    margin-left: 10px;
+}
+
+.prod-desc {
+    font-size: 16px;
+    /* font-weight: 600; */
+    /* font */
+    /* color: var(--primary-clr); */
+
+}
+
+.prod-add-cart {
+    border-radius: 4px;
+    border: 2px solid var(--primary-clr);
+    background-color: white;
+    padding: 3px 10px;
+    width: 100%;
+    color: var(--primary-clr);
+    font-weight: 600;
+}
+
+.prod-price {
+    font-weight: 700;
+    color: var(--primary-clr);
+}
+
+.piece {
+    font-weight: 500;
+    margin: 6px 0px;
+}
+
+.prod-content {
+    padding: 10px 20px;
+}
+
+.similarprod-card-outer {
+    position: relative;
+}
+
+.cardtop-shape {
+    position: absolute;
+    top: 0px;
+    width: 0px;
+    height: 50px;
+    width: 50px;
+    color: white;
+    padding: 5px;
+    font-size: 13px;
+    text-align: center;
+    background-size: cover;
+    background-image: url(../images/products/card-top-vector.png);
+}
+
+/* SIMILAR PRODUCTS CSS */
+
+
+
+.similarprod-card-outer {
+    height: fit-content;
+    width: 230px;
+    margin: 10px;
+    background-color: var(--card-bg-clr);
+}
+.starRatingIcon svg{
+    color: goldenrod;
+}
+.topdeal-card-title {
+    color: var(--card-heading-clr);
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.topdeal-content-content {
+    padding: 10px;
+}
+
+.topdeal-card-content {
+    color: var(--card-content-clr);
+    font-size: 14px;
+    margin: 10px 0px 10px 0px !important;
+}
+
+
+
+.explore-prod-img img {
+    height: 120px;
+    width: 120px;
+    background-color: white;
+}
+
+.explore-prod-img {
+    padding: 20px;
+    /* background-color: white; */
+    display: flex;
+    justify-content: center;
+}
+
+.topdeal-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    height: fit-content;
+
+}
+
+
+
+.original-price {
+    color: var(--card-content-clr);
+    font-weight: 600;
+    text-align: center;
+    margin-right: 15px;
+}
+
+
+
+.readMoreLess {
+    color: var(--primary-clr);
+    /* color: var(--primary-clr);  */
+    font-size: 13px;
+    cursor: pointer;
+}

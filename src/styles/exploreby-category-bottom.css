@@ -1,0 +1,58 @@
+.category-cards {
+    height: 130px;
+    width: 130px;
+    border-radius: 100%;
+    background-color: #F3E3DE;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    padding: 30px;
+    text-align: center;
+}
+
+.card-cat-outer {
+    /* height: 250px; */
+    width: 200px;
+ margin-bottom: 20px;
+    /* display: flex;
+    justify-content: center;
+    flex-wrap: wrap; */
+}
+
+.cat-title{
+ height: fit-content;
+    width: 200px;
+ 
+}
+
+
+
+.exploreby-card-outer {
+
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    height: fit-content;
+
+}
+
+.topdeal-card-img {
+    padding: 10px;
+    background-color: white;
+}
+
+.original-price {
+    color: var(--card-content-clr);
+    font-weight: 600;
+    text-align: center;
+    margin-right: 15px;
+}
+
+
+
+.readMoreLess {
+    color: var(--primary-clr);
+    /* color: var(--primary-clr);  */
+    font-size: 13px;
+}

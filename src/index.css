@@ -1,0 +1,77 @@
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'poppins' ;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.sidebar-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.logout-hover :hover {
+  background-color: rgba(255, 45, 45, 0.543) !important;
+} */
+:root {
+  --primary-clr: #082A45;
+  --heading-clr: #202325;
+  --section-title-clr: #253D4E;
+  --grey-clr: #202325;
+}
+
+.btn-primary {
+  background-color: var(--primary-clr) !important;
+  color: white;
+  border: none !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-clr) !important;
+
+}
+
+.section-heading {
+  font-size: 23px !important;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--section-title-clr);
+}
+a{
+  text-decoration: none !important;
+  /* color: var(--primary-clr) !important; */
+}
+footer a{
+  text-decoration: none !important;
+  color:white !important;
+}
+
+
+.sidebar-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.logout-hover :hover {
+  background-color: rgba(255, 45, 45, 0.543) !important;
+}
+@keyframes slideIn {
+  from {
+      transform: translateX(-100%);
+  }
+  to {
+      transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+      transform: translateX(0);
+  }
+  to {
+      transform: translateX(-100%);
+  }
+}
