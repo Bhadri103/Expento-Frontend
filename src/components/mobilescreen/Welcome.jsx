@@ -72,6 +72,7 @@ export default function Welcome() {
 const styles = {
   container: {
     height: "100vh",
+    height: "100dvh",
     display: "flex",
     flexDirection: "column",
     backgroundColor: "#ffffff",

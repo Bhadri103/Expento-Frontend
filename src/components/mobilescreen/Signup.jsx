@@ -43,45 +43,11 @@ export default function Signup() {
 
     const handleSignup = () => {
         if (!validateForm()) {
-            toast.error("Oops! Please fix the errors.", {
-                position: "top-center",
-                autoClose: 2500,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                style: {
-                    fontSize: "14px",
-                    fontWeight: "500",
-                    borderRadius: "10px",
-                    background: "#FF4C4C",
-                    color: "#fff",
-                    boxShadow: "0px 4px 10px rgba(255, 76, 76, 0.2)",
-                    maxWidth: "90%", 
-                    margin: "12px auto", 
-                    padding: "12px 16px",
-                }
-            });
+            toast.error("Oops! Please fix the errors.");
             return;
         }
 
-        toast.success("Signup successful!", {
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            style: {
-                fontSize: "14px",
-                fontWeight: "500",
-                borderRadius: "10px",
-                background: "#4CAF50",
-                color: "#fff",
-                boxShadow: "0px 4px 10px rgba(76, 175, 80, 0.2)",
-                maxWidth: "90%",
-                margin: "12px auto",
-                padding: "12px 16px",
-            }
-        });
+        toast.success("Signup successful!");
     };
 
 
@@ -186,6 +152,7 @@ export default function Signup() {
 const styles = {
     container: {
         height: "100vh",
+        height: "100dvh",
         display: "flex",
         flexDirection: "column",
         backgroundColor: "#ffffff",

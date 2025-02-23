@@ -27,7 +27,7 @@ const Navbar = () => {
                 </div>
 
                 <div className="d-flex align-items-center justify-content-center gap-3 px-3">
-                    <Link to="/log-in" style={{ textDecoration: "none" }}>
+                    <Link to="/Welcome" style={{ textDecoration: "none" }}>
                         <div className="d-flex flex-column align-items-center pointer" style={{ cursor: "pointer" }}>
                             <img src="/login_logo.svg" alt="Login" style={styles.icon} />
                             <span style={styles.text}>Login</span>
@@ -52,8 +52,6 @@ const styles = {
     navbar: {
         backgroundColor: "#0B2C47",
         display: "flex",
-        position: "sticky !important",
-        top:'0px',
         alignItems: "center",
         color: "white",
         width: "100%",

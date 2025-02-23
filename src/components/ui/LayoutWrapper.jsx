@@ -9,7 +9,7 @@ const LayoutWrapper = ({ children }) => {
                 <Navbar />
             </header>
 
-            <main className=" py-4">{children}</main>
+            <main className="">{children}</main>
             <footer>
                 <Footer />
             </footer>

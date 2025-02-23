@@ -10,11 +10,11 @@ const SignupScreen = lazy(() => import("../components/screen/SignupScreen"));
 export default function SignupPage() {
 
     const [isMobile, setIsMobile] = useState(
-      window.matchMedia("(max-width: 500px)").matches
+      window.matchMedia("(max-width: 600px)").matches
     );
   
     useEffect(() => {
-      const mediaQuery = window.matchMedia("(max-width: 500px)");
+      const mediaQuery = window.matchMedia("(max-width: 600px)");
   
       const handleResize = (e) => setIsMobile(e.matches);
   

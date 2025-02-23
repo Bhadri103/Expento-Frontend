@@ -1,47 +1,54 @@
 import React, { useState, useEffect } from "react";
 import { categories } from "../../constants/category";
+import { useNavigate } from "react-router-dom";
 
 const SubCategories = ({ subCategories, isLoading }) => {
+  const navigate = useNavigate();
+
   if (isLoading) {
     return (
-      <>
-        <div className="d-flex justify-content-center w-auto align-items-center">
-          <p style={styles.loader}>Loading...</p>
-        </div>
-      </>
+      <div id="loading-container" className="d-flex justify-content-center align-items-center">
+        <p id="loading-text" style={styles.loader}>Loading...</p>
+      </div>
     );
   }
 
   return (
-    <div style={styles.subCategories}>
+    <div id="subcategories-container" style={styles.subCategories}>
       {subCategories.length > 0 ? (
         subCategories.map((sub) => (
-          <div key={sub.subCategory} style={styles.subCategoryItem}>
+          <div
+            key={sub.id}
+            id={`subCategory-${sub.id}`}
+            style={styles.subCategoryItem}
+            onClick={() => navigate(`/subcategories/${sub.id}`)}
+          >
             <img
+              id={`subImage-${sub.id}`}
               src={sub.image}
               style={styles.subimage}
               loading="lazy"
               alt={sub.subCategory}
             />
-            <p style={styles.subCategoryText}>{sub.subCategory}</p>
+            <p id={`subCategoryText-${sub.id}`} style={styles.subCategoryText}>{sub.subCategory}</p>
           </div>
         ))
       ) : (
-        <p>No subcategories available.</p>
+        <p id="no-subcategories">No subcategories available.</p>
       )}
     </div>
   );
 };
 
 const Category = () => {
-  const [selectedCategory, setSelectedCategory] = useState(categories[0]?.category || null);
+  const [selectedCategory, setSelectedCategory] = useState(categories[0]?.id || null);
   const [subCategories, setSubCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
     const timer = setTimeout(() => {
-      const selectedCat = categories.find((cat) => cat.category === selectedCategory);
+      const selectedCat = categories.find((cat) => cat.id === selectedCategory);
       setSubCategories(selectedCat?.subCategories || []);
       setIsLoading(false);
     }, 500);
@@ -49,33 +56,29 @@ const Category = () => {
   }, [selectedCategory]);
 
   return (
-    <div style={styles.container}>
-
-      <div style={styles.topBar}>All Categories</div>
-
-
-      <div style={styles.content}>
-
-        <div style={styles.categoriesList}>
+    <div id="categories-container" style={styles.container}>
+      <div id="topBar" style={styles.topBar}>All Categories</div>
+      <div id="categories-content" style={styles.content}>
+        <div id="categories-list" style={styles.categoriesList}>
           {categories.map((category) => (
             <div
-              key={category.category}
-              style={styles.categoryItem(selectedCategory === category.category)}
-              onClick={() => setSelectedCategory(category.category)}
+              key={category.id}
+              id={`category-${category.id}`}
+              style={styles.categoryItem(selectedCategory === category.id)}
+              onClick={() => setSelectedCategory(category.id)}
             >
               <img
+                id={`categoryImage-${category.id}`}
                 src={category.image}
                 alt={category.category}
-                style={styles.image(selectedCategory === category.category)}
+                style={styles.image(selectedCategory === category.id)}
                 loading="lazy"
               />
               {category.category}
             </div>
           ))}
         </div>
-
-
-        <div>
+        <div id="subcategory-section">
           <SubCategories subCategories={subCategories} isLoading={isLoading} />
         </div>
       </div>
@@ -105,7 +108,6 @@ const styles = {
     display: "flex",
     flexDirection: "row",
     padding: "10px",
-
   },
   categoriesList: {
     width: "fit-content",
@@ -114,7 +116,6 @@ const styles = {
     marginBottom: "10px",
     width: "75px",
     cursor: "pointer",
-
     background: "transparent",
     display: "flex",
     flexDirection: "column",
@@ -136,7 +137,6 @@ const styles = {
     justifyContent: "flex-start",
     borderRadius: "8px",
     marginLeft: "8px",
-
   },
   subCategoryItem: {
     display: "flex",
@@ -175,6 +175,5 @@ const styles = {
     fontWeight: "bold",
     color: "#082A45",
     textAlign: "center",
-    width: "100%",
   },
 };

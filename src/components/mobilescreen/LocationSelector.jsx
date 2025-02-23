@@ -89,7 +89,7 @@ export default function LocationSelector() {
 }
 
 const styles = {
-    container: {      height: "100vh", display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" },
+    container: {      height: "100vh", height: "100dvh", display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" },
     topBar: { display: "flex", alignItems: "center", justifyContent: "center", position: "relative", padding: "20px 15px", background: "#fff", zIndex: 10 },
     backButton: { position: "absolute", left: "15px", textDecoration: "none" },
     backIcon: { fontSize: "22px", cursor: "pointer", color: "#000" },
