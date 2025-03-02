@@ -75,3 +75,8 @@ footer a{
       transform: translateX(-100%);
   }
 }
+
+
+.swiper-wrapper{
+  padding: 0 !important;
+}

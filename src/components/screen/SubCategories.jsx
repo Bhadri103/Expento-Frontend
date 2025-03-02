@@ -4,7 +4,7 @@ import { FaArrowLeft, FaSearch } from "react-icons/fa";
 import category4 from "../../assets/images/category/beauty.jpg";
 import "../../styles/subCategories.css";
 import { categories } from "../../constants/category";
-import Items from "../ui/Items" // Import the Items component
+import Items from "../ui/Items" 
 
 const SubCategories = ({ isMobile }) => {
   const { subCategoryId } = useParams();

@@ -41,9 +41,10 @@ const SubCategories = ({ subCategories, isLoading }) => {
 };
 
 const Category = () => {
-  const [selectedCategory, setSelectedCategory] = useState(categories[0]?.id || null);
+  const [selectedCategory, setSelectedCategory] = useState(2);
   const [subCategories, setSubCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsLoading(true);
@@ -55,6 +56,14 @@ const Category = () => {
     return () => clearTimeout(timer);
   }, [selectedCategory]);
 
+  const handleCategoryClick = (categoryId, categoryName) => {
+    if (categoryName === "Clothing") {
+      navigate("/clothing");
+    } else {
+      setSelectedCategory(categoryId);
+    }
+  };
+
   return (
     <div id="categories-container" style={styles.container}>
       <div id="topBar" style={styles.topBar}>All Categories</div>
@@ -65,7 +74,7 @@ const Category = () => {
               key={category.id}
               id={`category-${category.id}`}
               style={styles.categoryItem(selectedCategory === category.id)}
-              onClick={() => setSelectedCategory(category.id)}
+              onClick={() => handleCategoryClick(category.id, category.category)}
             >
               <img
                 id={`categoryImage-${category.id}`}

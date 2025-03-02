@@ -13,12 +13,12 @@ const CategoryPage = lazy(() =>import("../pages/CategoryPage"));
 const SubCategoryPage = lazy(() => import("../pages/SubCategoryPage"));
 const ItemPage = lazy(() => import("../components/mobilescreen/ItemDetails"));
 const AccountPage = lazy(() => import("../pages/AccountPage"));
-
+const ClothingPage = lazy(() => import("../pages/ClothingPage"));
 const ProductDetails = lazy(() => import("../pages/ProductDetails"));
 const Home = lazy(() => import("../pages/Home"));
 const YourGotoList = lazy(() => import("../pages/Home"));
-
-
+const ClothingCategoryPage = lazy(() => import("../pages/ClothingCategoryPage"));
+const ProductListPage = lazy(() => import("../pages/ProductListPage"));
 const withSuspense = Component =>
   <Suspense fallback={<Loader />}>
     <Component />
@@ -99,6 +99,20 @@ export const routes = [
     name: "account",
     path: "/account",
     element: withSuspense(AccountPage),
+  },
+  {
+    name: "clothing",
+    path: "/clothing",
+    element: withSuspense(ClothingPage),
+  },
+  {
+    name: "clothingCategory",
+    path:"/clothing-category",
+    element: withSuspense(ClothingCategoryPage),
+  },
+  {
+    name: "productList",
+    path:"/product-list",
+    element: withSuspense(ProductListPage),
   }
-
 ];
