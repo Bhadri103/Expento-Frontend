@@ -12,7 +12,7 @@ const LocationSelectorPage = lazy(() =>import("../pages/LocationSelectorPage"));
 const CategoryPage = lazy(() =>import("../pages/CategoryPage"));
 const SubCategoryPage = lazy(() => import("../pages/SubCategoryPage"));
 const ItemPage = lazy(() => import("../components/mobilescreen/ItemDetails"));
-
+const AccountPage = lazy(() => import("../pages/AccountPage"));
 
 const ProductDetails = lazy(() => import("../pages/ProductDetails"));
 const Home = lazy(() => import("../pages/Home"));
@@ -95,4 +95,10 @@ export const routes = [
     path:  "/subcategories/:subCategoryId", 
     element: withSuspense(SubCategoryPage),
   },
+  {
+    name: "account",
+    path: "/account",
+    element: withSuspense(AccountPage),
+  }
+
 ];

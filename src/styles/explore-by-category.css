@@ -3,6 +3,8 @@
 .similarProductCard {
     border: 1px solid rgb(185, 185, 185);
     border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .prod-title {

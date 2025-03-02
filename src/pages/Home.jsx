@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Suspense, lazy } from "react";
 import Loader from "../components/ui/Loader";
 import LayoutWrapper from "../components/ui/LayoutWrapper";
+import MobileBottomNav from "../components/mobilescreen/MobileBottomNav"; 
 
 // const Login = lazy(() => import("../components/mobilescreen/Login"));
 const YourGoToItems = lazy(() => import("../components/ui/YourGoToItems"));
@@ -27,15 +28,31 @@ export default function LoginPage() {
         <Suspense fallback={<Loader />}>
             {/* {isMobile ? <Login /> : */}
             <>
- 
-                    <YourGoToItems />
-                    <SimilarProduct />
-                    <ExploreByCategories />
-                    <ExploreByCategoryBottom />
-                    <MustHave />
-  
+                <YourGoToItems />
+                <SimilarProduct />
+                <ExploreByCategories />
+                <ExploreByCategoryBottom />
+                <MustHave />
+                {isMobile && (
+                    <div style={styles.bottomNavContainer}>
+                        <MobileBottomNav />
+                    </div>
+                )}
             </>
             {/* } */}
         </Suspense>
     );
 }
+
+
+const styles = {
+    bottomNavContainer: {
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        zIndex: 1000, 
+        backgroundColor: "#fff", 
+        boxShadow: "0 -2px 5px rgba(0, 0, 0, 0.1)", 
+    },
+};

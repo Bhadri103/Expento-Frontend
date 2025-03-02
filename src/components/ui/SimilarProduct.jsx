@@ -1,9 +1,9 @@
- 
-import '../../styles/similar-product.css';
+import React, { useState } from "react";
+import "../../styles/similar-product.css";
 import { MdOutlineCurrencyRupee } from "react-icons/md";
 import { FaStar } from "react-icons/fa";
 import cardTopVector from "../../images/products/card-top-vector.png";
-import React, { useState } from 'react'
+
 // Dummy data for now (later replace with API data)
 const products = [
     {
@@ -86,7 +86,6 @@ const products = [
         discount: "12% Off",
         rating: 4.8,
     },
-
 ];
 
 const SimilarProduct = () => {
@@ -98,23 +97,20 @@ const SimilarProduct = () => {
             [id]: !prevState[id],
         }));
     };
-    return (
-        <section className='similar-products mt-5'>
-            <div className="container px-0">
-                <h3 className='mb-2'>Similar product</h3>
-                <div className="row g-3 d-flex justify-content-center">
 
+    return (
+        <section className="similar-products mt-5">
+            <div className="container px-0">
+                <h3 className="mb-2 mx-2">Similar Products</h3>
+                <div className="topdeal-container">
                     {products.map((product) => (
                         <div className="similarprod-card-outer" key={product.id}>
-
                             <div className="cardtop-shape">{product.discount}</div>
-                            <div className="prod-img">
-                                <img src={product.image} alt={product.name} className='img-fluid' />
+                            <div className="explore-prod-img">
+                                <img src={product.image} alt={product.name} className="img-fluid" />
                             </div>
-                            <div className="prod-content">
-
-                                {/* <p className="prod-title mb-0">{product.name}</p> */}
-                                <p className="prod-title mb-0">
+                            <div className="topdeal-content-content">
+                                <p className="topdeal-card-title">
                                     {expanded[product.id]
                                         ? product.name
                                         : `${product.name?.slice(0, 14) || ""} ..`}
@@ -125,18 +121,18 @@ const SimilarProduct = () => {
                                         {expanded[product.id] ? "..." : "..."}
                                     </span>
                                 </p>
-
                                 <div className="row mb-2">
                                     <div className="col-6">
                                         <div className="price">
-                                            <span className="prod-price">
+                                            <div className="prod-price">
                                                 <MdOutlineCurrencyRupee />{product.price}
-                                            </span>
-                                            <strike><MdOutlineCurrencyRupee />{product.originalPrice}</strike>
+                                            </div>
+                                            <div><strike style={{margin: 0}}><MdOutlineCurrencyRupee />{product.originalPrice}</strike></div>
+                                            
                                         </div>
                                     </div>
                                     <div className="col-6 text-end">
-                                        <p className='text-end'>
+                                        <p className="text-end">
                                             <span className="starRatingIcon d-flex justify-content-end align-items-center">
                                                 <FaStar />
                                                 <span className="ms-1">{product.rating}</span>
@@ -148,7 +144,6 @@ const SimilarProduct = () => {
                                     Add to Cart
                                 </button>
                             </div>
-
                         </div>
                     ))}
                 </div>

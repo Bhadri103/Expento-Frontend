@@ -73,11 +73,11 @@ const MustHave = () => {
     return (
         <section className='similar-products mt-5'>
             <div className="container px-0">
-                <div className="row">
-                    <div className="col-8"><h3 className="section-heading">Must have in your Household</h3></div>
-                    <div className="col-4 text-end"><Link to=''>See All</Link></div>
+                <div className="d-flex justify-content-between px-2">
+                    <div className=""><h3 className="section-heading">Must have in your Household</h3></div>
+                    <div className="text-end"><Link to=''>See All</Link></div>
                 </div>
-                <div className="row g-3 d-flex justify-content-center">
+                <div className="row w-100 g-3 d-flex justify-content-center">
 
                     {products.map((product) => (
                         <div className="explore-card-outer" key={product.id}>

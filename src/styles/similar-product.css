@@ -1,5 +1,4 @@
 /* SIMILAR PRODUCTS CSS */
-
 .similarProductCard {
     border: 1px solid rgb(185, 185, 185);
     border-radius: 10px;
@@ -8,22 +7,18 @@
 .prod-title {
     font-size: 18px;
     font-weight: 700;
-    /* font */
     color: var(--primary-clr);
-
 }
 
 .price strike {
     color: grey;
     margin-left: 10px;
+
+
 }
 
 .prod-desc {
     font-size: 16px;
-    /* font-weight: 600; */
-    /* font */
-    /* color: var(--primary-clr); */
-
 }
 
 .prod-add-cart {
@@ -52,14 +47,17 @@
 
 .similarprod-card-outer {
     position: relative;
+    height: fit-content;
+    width: 230px;
+    margin: 10px;
+    background-color: var(--card-bg-clr);
 }
 
 .cardtop-shape {
     position: absolute;
     top: 0px;
-    width: 0px;
-    height: 50px;
     width: 50px;
+    height: 50px;
     color: white;
     padding: 5px;
     font-size: 13px;
@@ -68,19 +66,10 @@
     background-image: url(../images/products/card-top-vector.png);
 }
 
-/* SIMILAR PRODUCTS CSS */
-
-
-
-.similarprod-card-outer {
-    height: fit-content;
-    width: 230px;
-    margin: 10px;
-    background-color: var(--card-bg-clr);
-}
-.starRatingIcon svg{
+.starRatingIcon svg {
     color: goldenrod;
 }
+
 .topdeal-card-title {
     color: var(--card-heading-clr);
     margin-bottom: 5px;
@@ -94,10 +83,8 @@
 .topdeal-card-content {
     color: var(--card-content-clr);
     font-size: 14px;
-    margin: 10px 0px 10px 0px !important;
+    margin: 10px 0px !important;
 }
-
-
 
 .explore-prod-img img {
     height: 120px;
@@ -107,7 +94,6 @@
 
 .explore-prod-img {
     padding: 20px;
-    /* background-color: white; */
     display: flex;
     justify-content: center;
 }
@@ -115,14 +101,13 @@
 .topdeal-container {
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     height: fit-content;
-
 }
-
-
-
+.prod-original-price{
+    display: flex;
+}
 .original-price {
     color: var(--card-content-clr);
     font-weight: 600;
@@ -130,11 +115,40 @@
     margin-right: 15px;
 }
 
-
-
 .readMoreLess {
     color: var(--primary-clr);
-    /* color: var(--primary-clr);  */
     font-size: 13px;
     cursor: pointer;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .similarprod-card-outer {
+        width: 45%; /* Show 2 cards per row on mobile */
+        margin: 5px;
+    }
+
+    .explore-prod-img img {
+        height: 100px;
+        width: 100px;
+    }
+
+    .prod-title {
+        font-size: 16px;
+    }
+
+    .prod-price {
+        font-size: 14px;
+        display: flex;
+        vertical-align: middle;
+    }
+    .prod-original-price {
+        font-size: 14px;
+        display: flex;
+        vertical-align: middle;
+    }
+
+    .prod-add-cart {
+        font-size: 12px;
+    }
 }
