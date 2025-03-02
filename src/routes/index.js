@@ -19,6 +19,8 @@ const Home = lazy(() => import("../pages/Home"));
 const YourGotoList = lazy(() => import("../pages/Home"));
 const ClothingCategoryPage = lazy(() => import("../pages/ClothingCategoryPage"));
 const ProductListPage = lazy(() => import("../pages/ProductListPage"));
+const PaymentPage = lazy(() => import("../pages/PaymentPage"))
+
 const withSuspense = Component =>
   <Suspense fallback={<Loader />}>
     <Component />
@@ -114,5 +116,10 @@ export const routes = [
     name: "productList",
     path:"/product-list",
     element: withSuspense(ProductListPage),
+  },
+  {
+    name:"payment",
+    path:"/payment",
+    element: withSuspense(PaymentPage)
   }
 ];

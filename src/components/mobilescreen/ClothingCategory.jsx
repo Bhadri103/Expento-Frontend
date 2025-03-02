@@ -139,6 +139,7 @@ const TopBar = () => {
 
 
 const CategoryGrid = () => {
+    const navigate = useNavigate();
     return (
         <div className="p-2">
 
@@ -146,7 +147,7 @@ const CategoryGrid = () => {
             <div className="container" style={styles.container}>
                 <div className="row g-3">
                     {Category.map((item) => (
-                        <div key={item.id} className="col-4">
+                        <div key={item.id} className="col-4"   onClick={() => navigate("/product-list")}>
                             <div className="" style={styles.card}>
                                 <img src={item.image} alt={item.category} style={styles.img} />
                                 <p style={styles.text}>{item.category}</p>
