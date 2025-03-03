@@ -22,6 +22,7 @@ const ClothingCategoryPage = lazy(() => import("../pages/ClothingCategoryPage"))
 const ProductListPage = lazy(() => import("../pages/ProductListPage"));
 const PaymentPage = lazy(() => import("../pages/PaymentPage"))
 const MyOrdersPage = lazy(() => import("../pages/MyOrdersPage"))
+const CartPage = lazy(() => import("../pages/CartPage"))
 
 const withSuspense = Component =>
   <Suspense fallback={<Loader />}>
@@ -128,5 +129,10 @@ export const routes = [
     name:"myorders",
     path:"/my-orders",
     element: withSuspense(MyOrdersPage)
+  },
+  {
+    name:"cart",
+    path:"/cart",
+    element: withSuspense(CartPage)
   }
 ];
