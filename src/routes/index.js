@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import Loader from "../components/ui/Loader";
 
+
 const LandingPage = lazy(() => import("../pages/LandingPage"));
 const GetStartedPage = lazy(() => import("../pages/GetStartedPage"));
 const WelcomePage = lazy(() => import("../pages/WelcomePage"));
@@ -20,6 +21,7 @@ const YourGotoList = lazy(() => import("../pages/Home"));
 const ClothingCategoryPage = lazy(() => import("../pages/ClothingCategoryPage"));
 const ProductListPage = lazy(() => import("../pages/ProductListPage"));
 const PaymentPage = lazy(() => import("../pages/PaymentPage"))
+const MyOrdersPage = lazy(() => import("../pages/MyOrdersPage"))
 
 const withSuspense = Component =>
   <Suspense fallback={<Loader />}>
@@ -121,5 +123,10 @@ export const routes = [
     name:"payment",
     path:"/payment",
     element: withSuspense(PaymentPage)
+  },
+  {
+    name:"myorders",
+    path:"/my-orders",
+    element: withSuspense(MyOrdersPage)
   }
 ];

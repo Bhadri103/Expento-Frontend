@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -9,13 +9,13 @@ export default function PaymentSuccess() {
 
   return (
     <div className="container-fluid" style={style.containerStyle}>
-      {/* Top Bar */}
+  
       <div className="d-flex align-items-center w-100 p-3 bg-white shadow-sm">
         <FaArrowLeft className="fs-4 me-3 cursor-pointer" onClick={() => navigate(-1)} />
         <span className="flex-grow-1 text-center fw-bold fs-5">Order Success</span>
       </div>
 
-      {/* Success Content */}
+  
       <div className="text-center d-flex flex-column align-items-center mt-4">
         <div className="d-flex justify-content-center" style={style.iconContainerStyle}>
           <img src="/Order_success.svg" alt="Order Success" className="w-50" />
@@ -24,8 +24,11 @@ export default function PaymentSuccess() {
         <p className="text-muted">You will get a response within <br/> a few minutes.</p>
       </div>
 
-      {/* Track Order Button */}
+   
+      <Link to="/my-orders">
+    
       <button className="btn btn-primary mt-3 w-75 px-4 py-2">Track order</button>
+      </Link>
     </div>
   );
 }

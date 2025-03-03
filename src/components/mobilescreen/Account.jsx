@@ -51,7 +51,7 @@ export default function AccountPage() {
     
             <div style={styles.menuContainer}>
                 <AccountItem to="/address" icon="/assets/distance.svg" label="Address" />
-                <AccountItem to="/my-order" icon="/assets/shopping_bag_speed.svg" label="My Order" />
+                <AccountItem to="/my-orders" icon="/assets/shopping_bag_speed.svg" label="My Order" />
                 <AccountItem to="/bonus" icon="/assets/paid.svg" label="Bonus" />
                 <AccountItem to="/wishlist" icon="/assets/favorite.svg" label="Wishlist" />
                 <AccountItem to="/refer-earn" icon="/assets/partner_exchange.svg" label="Refer & Earn" />
