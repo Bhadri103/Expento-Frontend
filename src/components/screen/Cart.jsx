@@ -7,6 +7,10 @@ import CartItems from "../ui/CartItems";
 import Tatasalt from '../../images/yourgotoitems/tata-salt.jpg';
 import kurkure from '../../images/yourgotoitems/kurkure.png';
 import AddOnItems from "../AddOnItems"
+import DeliveryPartnerTip from "../DeliveryPartnerTip"
+import CostList from "../CostList";
+import DeliveryInstruction from "../DeliveryInstruction";
+import deliveryPartner from '../../assets/images/delivery_partner.png'
 
 const initialCartItems = [
     {
@@ -73,6 +77,24 @@ export default function Cart() {
             </div>
             <CartItems cartItems={cartItems} setCartItems={setCartItems} />
             <AddOnItems items={items} />
+            <DeliveryPartnerTip />
+            <CostList />
+            <DeliveryInstruction />
+
+            <div className="d-flex mt-3 mb-5  align-items-center w-100 justify-content-between p-3 " style={{
+                boxShadow: "0.3px 0.3px 10px rgba(123, 123, 123, 0.4)",
+            }}>
+                <img src={deliveryPartner} alt="Delivery Partner" className="me-3" style={{ height: "48px", width: "48px" }} />
+                <p className="text-secondary fs-6 mb-0">
+                    See how we ensure our delivery partner’s safety
+                    <a href="#" className="text-primary fw-semibold ms-1">Learn more</a>
+                </p>
+            </div>
+
+            <div style={{ height: "200px" }}>
+
+            </div>
+
         </div>
     );
 }
