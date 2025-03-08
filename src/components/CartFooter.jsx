@@ -2,6 +2,7 @@ import { useState } from "react";
 import { MapPin } from "lucide-react";
 import React from "react";
 import { FaEllipsisV } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 
 const data = {
@@ -25,6 +26,7 @@ const data = {
 
 
 const DeliveryConfirmation = ({ setView, selectedSlot, selectedAddress }) => {
+    const navigate = useNavigate();
     return (
         <div style={styles.container}>
             <div style={styles.deliverySection}>
@@ -45,7 +47,7 @@ const DeliveryConfirmation = ({ setView, selectedSlot, selectedAddress }) => {
                         <MapPin color="#3B82F6" size={20} /> Change Address
                     </button>
                 </div>
-                <button style={styles.paymentButton}>CONTINUE TO PAY ₹940</button>
+                <button style={styles.paymentButton} onClick={() => navigate("/payment") }>CONTINUE TO PAY ₹940</button>
             </div>
         </div>
     );

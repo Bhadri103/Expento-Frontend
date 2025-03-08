@@ -50,7 +50,7 @@ const Navbar = () => {
 
 const styles = {
     navbar: {
-        backgroundColor: "#0B2C47",
+        backgroundColor: "#082A45",
         display: "flex",
         alignItems: "center",
         color: "white",

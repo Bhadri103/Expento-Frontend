@@ -2,6 +2,7 @@ import React, { useState, useEffect, Suspense, lazy } from "react";
 import Loader from "../components/ui/Loader";
 import LayoutWrapper from "../components/ui/LayoutWrapper";
 import MobileBottomNav from "../components/mobilescreen/MobileBottomNav"; 
+import IndexCategory from "../components/ui/IndexCategory";
 
 // const Login = lazy(() => import("../components/mobilescreen/Login"));
 const YourGoToItems = lazy(() => import("../components/ui/YourGoToItems"));
@@ -28,6 +29,7 @@ export default function LoginPage() {
         <Suspense fallback={<Loader />}>
             {/* {isMobile ? <Login /> : */}
             <>
+            {!isMobile && ( <IndexCategory/>)}
                 <YourGoToItems />
                 <SimilarProduct />
                 <ExploreByCategories />
